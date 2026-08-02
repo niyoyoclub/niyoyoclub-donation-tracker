@@ -51,7 +51,7 @@
       </div>
 
       <!-- Next Tier Status Badge -->
-      <div v-if="(totalAmount <= state.config.targetGoal)" class="text-center mb-3">
+      <div v-show="isShowNextTier" class="text-center mb-3">
         <div class="inline-flex items-center gap-1.5 px-4 py-1.5 bg-amber-200 border-2 border-[#1e293b] rounded-full text-xs sm:text-sm font-extrabold text-[#1e293b] shadow-[3px_3px_0px_#1e293b]">
           <span>🏆 NEXT {{ nextTierObject.name.toUpperCase() }} • ฿{{ formatMoney(nextTierObject.targetAmount) }} • {{ nextTierObject.description }} </span>
         </div>
@@ -281,8 +281,11 @@ import { Target, Hourglass, Users, Copy, Upload, MessageCircle, ExternalLink, X 
 
 defineEmits(['openSlipModal']);
 
+const isShowNextTier = ref(true);
 const copied = ref(false);
 const showQrModal = ref(false);
+
+isShowNextTier.value = totalAmount.value <= state.config.targetGoal;
 
 function formatMoney(val: number): string {
   return new Intl.NumberFormat('th-TH').format(val);
