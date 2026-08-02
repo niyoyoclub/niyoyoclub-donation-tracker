@@ -51,8 +51,8 @@
       </div>
 
       <!-- Next Tier Status Badge -->
-      <div class="text-center mb-3">
-        <div class="inline-flex items-center gap-1.5 px-4 py-1.5 bg-amber-200 border-2 border-[#1e293b] rounded-full text-xs sm:text-sm font-extrabold text-[#1e293b] shadow-[3px_3px_0px_#1e293b]">          
+      <div v-if="totalAmount <= state.config.targetGoal" class="text-center mb-3">
+        <div class="inline-flex items-center gap-1.5 px-4 py-1.5 bg-amber-200 border-2 border-[#1e293b] rounded-full text-xs sm:text-sm font-extrabold text-[#1e293b] shadow-[3px_3px_0px_#1e293b]">
           <span>🏆 NEXT {{ nextTierObject.name.toUpperCase() }} • ฿{{ formatMoney(nextTierObject.targetAmount) }} • {{ nextTierObject.description }} </span>
         </div>
       </div>
@@ -67,7 +67,7 @@
         </div>
         <div class="text-sm sm:text-base font-bold text-[#457b9d] font-mono mt-1">
           <span v-if="activeBonusTierMultiplier > 0" class="ml-2 inline-block px-2 py-0.5 bg-emerald-100 text-emerald-800 border border-emerald-600 rounded text-xs">
-            ผู้สนับสนุนทบ {{ formatMoney(activeBonusTierMultiplier) }} Tokens • ซื้อ {{ formatMoney(totalAmount/68) }} Tokens • รวม Vote {{ formatMoney(activeBonusTierMultiplier + totalAmount/68) }} Tokens
+            ผู้สนับสนุนทบ {{ formatMoney(activeBonusTierMultiplier) }} Tokens • ซื้อ {{ formatMoney(totalAmount/68) }} Tokens • รวม Vote {{ formatMoney(activeBonusTierMultiplier + totalAmount/68 + totalAmount >= state.config.targetGoal ? 4000 : 0) }} Tokens
           </span>
         </div>
       </div>
