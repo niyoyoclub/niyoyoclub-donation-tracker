@@ -43,13 +43,13 @@
             <span>Top Donors</span>
           </button>
 
-          <button 
+          <!--<button 
             @click="showSettingsModal = true" 
             class="py-2 px-3 bg-slate-100 hover:bg-slate-200 border-2 border-[#1e293b] rounded-xl text-slate-800 transition-all flex items-center justify-center gap-1"
             title="ตั้งค่า"
           >
             <Settings class="w-4 h-4" />
-          </button>
+          </button>-->
 
         </div>
       </div>
