@@ -6,7 +6,7 @@
       <!-- Section Title -->
       <div class="text-center mb-4">
         <span class="inline-block text-xs sm:text-sm font-extrabold uppercase text-[#1e293b] tracking-widest bg-pink-100 border border-[#1e293b] px-3 py-1 rounded-full shadow-[2px_2px_0px_#1e293b]">
-          . SUPPORT OUR DREAM .
+          . SUPPORT NIYA ซื้อ 5,000 Tokens .
         </span>
       </div>
 
@@ -34,11 +34,13 @@
 
         <!-- Tier Marker Ticks Below Bar -->
         <div class="flex justify-between items-center px-2 mt-1 text-[10px] sm:text-xs font-bold text-[#1e293b] uppercase">
-          <span :class="totalAmount >= 20000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">TIER 1</span>
-          <span :class="totalAmount >= 50000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">TIER 2</span>
-          <span :class="totalAmount >= 80000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">TIER 3</span>
-          <span :class="totalAmount >= 110000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">TIER 4</span>
-          <span :class="totalAmount >= 133333 ? 'text-pink-600 font-extrabold' : 'opacity-60'">TIER 5</span>
+          <span style="width: 4.41%; text-align: left;" :class="totalAmount >= 0 ? 'text-pink-600 font-extrabold' : 'opacity-60'">T0</span>
+          <span style="width: 4.41%; text-align: left;" :class="totalAmount >= 3000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">T1</span>
+          <span style="width: 8.82%; text-align: left;" :class="totalAmount >= 6000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">Tier 2</span>
+          <span style="width: 17.65%; text-align: left;" :class="totalAmount >= 12000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">Tier 3</span>
+          <span style="width: 35.29%; text-align: left;" :class="totalAmount >= 24000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">Tier 4</span>
+          <span style="width: 29.41%; text-align: left;" :class="totalAmount >= 48000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">Tier 5</span>
+          <span style="width: 4.41%; text-align: left;" :class="totalAmount >= 68000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">Tier 6</span>          
         </div>
       </div>
 
@@ -57,7 +59,7 @@
         <div class="text-sm sm:text-base font-bold text-[#457b9d] font-mono mt-1">
           / ฿{{ formatMoney(state.config.targetGoal) }}
           <span v-if="activeBonusTierMultiplier > 0" class="ml-2 inline-block px-2 py-0.5 bg-emerald-100 text-emerald-800 border border-emerald-600 rounded text-xs">
-            +{{ Math.round(activeBonusTierMultiplier * 100) }}% Bonus = ฿{{ formatMoney(effectiveAmount) }}
+            ผู้สนับสนุนทบ {{ formatMoney(activeBonusTierMultiplier) }} Tokens
           </span>
         </div>
       </div>
@@ -150,7 +152,7 @@
 
               <!-- Center SCB Logo Overlay -->
               <div class="absolute inset-0 m-auto w-10 h-10 bg-[#4c1d95] rounded-full border-2 border-white flex items-center justify-center shadow-md">
-                <span class="text-yellow-400 font-extrabold text-[10px]">SCB</span>
+                <span class="text-yellow-400 font-extrabold text-[10px]">KBANK</span>
               </div>
             </div>
 

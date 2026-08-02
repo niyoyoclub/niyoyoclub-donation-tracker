@@ -158,15 +158,15 @@
 
               <!-- Support Note -->
               <div class="mt-4 text-xs font-bold text-slate-700 font-['Prompt']">
-                "ขอบคุณทุกๆ คนที่ร่วมเดินทางไปด้วยกันในโพลครั้งสุดท้ายนี้มากๆ นะคะ! ♥"
+                "ขอบคุณทุกๆ คนที่ร่วมเดินทางไปด้วยกันเพื่อส่งน้องนีญ่าเป็นเซ็มบัสซึเพลงหลักครั้งแรก ในครั้งนี้มากๆ นะคะ! ♥"
               </div>
 
-              <button 
+              <!--<button 
                 @click="showSlipModal = true" 
                 class="mt-3 w-full py-2.5 bg-pink-500 hover:bg-pink-600 text-white font-extrabold text-xs uppercase tracking-wider rounded-2xl border-2 border-[#1e293b] shadow-[3px_3px_0px_#1e293b] active:translate-y-0.5 transition-all"
               >
                 ร่วมบริจาคให้โมเน่ต์
-              </button>
+              </button>-->
             </div>
           </div>
 
