@@ -48,7 +48,13 @@
       <div class="text-center mb-3">
         <div class="inline-flex items-center gap-1.5 px-4 py-1.5 bg-amber-300 border-2 border-[#1e293b] rounded-full text-xs sm:text-sm font-extrabold text-[#1e293b] shadow-[3px_3px_0px_#1e293b]">
           <span>🏆 CURRENT TIER: {{ currentTierObject.name.toUpperCase() }} • {{ totalAmount >= state.config.targetGoal ? 'TOP TIER REACHED!' : currentTierObject.description }}</span>
-          <span>🏆 NEXT TIER: {{ nextTierObject.name.toUpperCase() }} </span>
+        </div>
+      </div>
+
+      <!-- Next Tier Status Badge -->
+      <div class="text-center mb-3">
+        <div class="inline-flex items-center gap-1.5 px-4 py-1.5 bg-amber-600 border-2 border-[#1e293b] rounded-full text-xs sm:text-sm font-extrabold text-[#1e293b] shadow-[3px_3px_0px_#1e293b]">          
+          <span>🏆 NEXT TIER: {{ nextTierObject.name.toUpperCase() }} • {{ nextTierObject.description }} </span>
         </div>
       </div>
 
