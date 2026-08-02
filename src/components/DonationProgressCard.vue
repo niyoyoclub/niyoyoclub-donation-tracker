@@ -39,21 +39,21 @@
           <span style="width: 17.65%; text-align: left;" :class="totalAmount >= 12000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">Tier 3</span>
           <span style="width: 35.29%; text-align: left;" :class="totalAmount >= 24000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">Tier 4</span>
           <span style="width: 24.41%; text-align: left;" :class="totalAmount >= 48000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">Tier 5</span>
-          <span style="width: 9.41%; text-align: left;" :class="totalAmount >= 68000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">Tier 6</span>          
+          <span style="width: 9.41%; text-align: right;" :class="totalAmount >= 68000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">Tier 6</span>          
         </div>
       </div>
 
       <!-- Current Tier Status Badge -->
       <div class="text-center mb-3">
         <div class="inline-flex items-center gap-1.5 px-4 py-1.5 bg-amber-300 border-2 border-[#1e293b] rounded-full text-xs sm:text-sm font-extrabold text-[#1e293b] shadow-[3px_3px_0px_#1e293b]">
-          <span>🏆 CURRENT TIER: {{ currentTierObject.name.toUpperCase() }} • {{ totalAmount >= state.config.targetGoal ? 'TOP TIER REACHED!' : currentTierObject.description }}</span>
+          <span>🏆 CURRENT {{ currentTierObject.name.toUpperCase() }} • {{ totalAmount >= state.config.targetGoal ? 'TOP TIER REACHED!' : currentTierObject.description }}</span>
         </div>
       </div>
 
       <!-- Next Tier Status Badge -->
       <div class="text-center mb-3">
         <div class="inline-flex items-center gap-1.5 px-4 py-1.5 bg-amber-200 border-2 border-[#1e293b] rounded-full text-xs sm:text-sm font-extrabold text-[#1e293b] shadow-[3px_3px_0px_#1e293b]">          
-          <span>🏆 NEXT TIER: {{ nextTierObject.name.toUpperCase() }} • {{ nextTierObject.description }} </span>
+          <span>🏆 NEXT {{ nextTierObject.name.toUpperCase() }} • ฿{{ formatMoney(nextTierObject.targetAmount) }} • {{ nextTierObject.description }} </span>
         </div>
       </div>
 
