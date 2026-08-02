@@ -61,6 +61,9 @@
 </template>
 
 <script setup lang="ts">
-import { state } from '../store/donationStore';
+import { state, currentTierText, nextTierText } from '../store/donationStore';
 import { Sparkles } from 'lucide-vue-next';
+
+console.log('currentTierText=',currentTierText.value);
+console.log('nextTierText=',nextTierText.value);
 </script>
