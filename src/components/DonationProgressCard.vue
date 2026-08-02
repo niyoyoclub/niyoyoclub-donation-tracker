@@ -6,7 +6,7 @@
       <!-- Section Title -->
       <div class="text-center mb-4">
         <span class="inline-block text-xs sm:text-sm font-extrabold uppercase text-[#1e293b] tracking-widest bg-pink-100 border border-[#1e293b] px-3 py-1 rounded-full shadow-[2px_2px_0px_#1e293b]">
-          . SUPPORT NIYA ซื้อ 5,000 Tokens .
+          . SUPPORT NIYA ซื้อ 1,000 Tokens • ผู้สนับสนุนทบ 4,000 Tokens .
         </span>
       </div>
 
@@ -33,14 +33,13 @@
         </div>
 
         <!-- Tier Marker Ticks Below Bar -->
-        <div class="flex justify-between items-center px-2 mt-1 text-[10px] sm:text-xs font-bold text-[#1e293b] uppercase">
-          <span style="width: 4.41%; text-align: left;" :class="totalAmount >= 0 ? 'text-pink-600 font-extrabold' : 'opacity-60'">T0</span>
-          <span style="width: 4.41%; text-align: left;" :class="totalAmount >= 3000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">T1</span>
+        <div class="flex justify-between items-center px-2 mt-1 text-[10px] sm:text-xs font-bold text-[#1e293b] uppercase">          
+          <span style="width: 8.82%; text-align: center;" :class="totalAmount >= 3000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">Tier 1</span>
           <span style="width: 8.82%; text-align: left;" :class="totalAmount >= 6000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">Tier 2</span>
           <span style="width: 17.65%; text-align: left;" :class="totalAmount >= 12000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">Tier 3</span>
           <span style="width: 35.29%; text-align: left;" :class="totalAmount >= 24000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">Tier 4</span>
-          <span style="width: 29.41%; text-align: left;" :class="totalAmount >= 48000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">Tier 5</span>
-          <span style="width: 4.41%; text-align: left;" :class="totalAmount >= 68000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">Tier 6</span>          
+          <span style="width: 24.41%; text-align: left;" :class="totalAmount >= 48000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">Tier 5</span>
+          <span style="width: 9.41%; text-align: left;" :class="totalAmount >= 68000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">Tier 6</span>          
         </div>
       </div>
 
@@ -53,7 +52,7 @@
 
       <!-- Next Tier Status Badge -->
       <div class="text-center mb-3">
-        <div class="inline-flex items-center gap-1.5 px-4 py-1.5 bg-amber-600 border-2 border-[#1e293b] rounded-full text-xs sm:text-sm font-extrabold text-[#1e293b] shadow-[3px_3px_0px_#1e293b]">          
+        <div class="inline-flex items-center gap-1.5 px-4 py-1.5 bg-amber-200 border-2 border-[#1e293b] rounded-full text-xs sm:text-sm font-extrabold text-[#1e293b] shadow-[3px_3px_0px_#1e293b]">          
           <span>🏆 NEXT TIER: {{ nextTierObject.name.toUpperCase() }} • {{ nextTierObject.description }} </span>
         </div>
       </div>
