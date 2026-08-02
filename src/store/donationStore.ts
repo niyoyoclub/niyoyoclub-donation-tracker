@@ -102,12 +102,9 @@ export const currentTierObject = computed(() => {
   return state.tiers.find(t => t.level === lvl) || state.tiers[0];
 });
 
-export const currentTierText = computed(() => {
-  return BONUS_TIER_TEXTS[currentTierObject.value];
-});
-
-export const nextTierText = computed(() => {
-  return BONUS_TIER_TEXTS[currentTierObject.value + 1];
+export const nextTierObject = computed(() => {
+  const lvl = currentTierLevel.value + 1;
+  return state.tiers.find(t => t.level === lvl) || state.tiers[0];
 });
 
 // Reactive Filtering & Sorting
