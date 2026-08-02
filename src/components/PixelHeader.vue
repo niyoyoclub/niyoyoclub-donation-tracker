@@ -34,10 +34,10 @@
         <!-- Active Bonus Tier Card -->
         <div class="w-full sm:w-auto min-w-[240px] bg-gradient-to-r from-pink-400 to-rose-400 border-2 border-[#1e293b] rounded-xl p-2 shadow-[3px_3px_0px_#1e293b] text-center text-white relative overflow-hidden group">
           <div class="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-pink-100 font-['Press_Start_2P']">
-            {{ state.config.activeBonusTierText.split(' ')[0] }} {{ state.config.activeBonusTierText.split(' ')[1] }}
+            {{ activeBonusTierText.split(' ')[0] }} {{ activeBonusTierText.split(' ')[1] }}
           </div>
           <div class="text-xs sm:text-sm font-extrabold uppercase mt-0.5 text-yellow-200 drop-shadow-[1px_1px_0px_#1e293b]">
-            {{ state.config.activeBonusTierText.replace(/\[NOW\]\s*/i, '') }}
+            {{ activeBonusTierText.replace(/\[NOW\]\s*/i, '') }}
           </div>
           <div class="absolute -right-2 -bottom-2 opacity-20 group-hover:opacity-40 transition-opacity">
             <Sparkles class="w-10 h-10 text-white" />
@@ -50,7 +50,7 @@
             NEXT TARGET
           </div>
           <div class="text-xs sm:text-sm font-bold uppercase text-[#1e293b]">
-            {{ state.config.nextBonusTierText }}
+            {{ nextBonusTierText }}
           </div>
         </div>
 
@@ -61,12 +61,15 @@
 </template>
 
 <script setup lang="ts">
-import { state, currentTierLevel, currentTierText, nextTierText } from '../store/donationStore';
+import { ref } from 'vue';
+import { state, currentTierLevel } from '../store/donationStore';
 import { BONUS_TIER_TEXTS } from '../data/initialData';
 import { Sparkles } from 'lucide-vue-next';
 
 console.log('BONUS_TIER_TEXTS=',BONUS_TIER_TEXTS);
 console.log('currentTierLevel=',currentTierLevel.value);
-console.log('currentTierText=',currentTierText.value);
-console.log('nextTierText=',nextTierText.value);
+const activeBonusTierText = ref(BONUS_TIER_TEXTS[currentTierLevel.value]);
+const nextBonusTierText = ref(BONUS_TIER_TEXTS[currentTierLevel.value + 1]);
+console.log('activeBonusTierText=',activeBonusTierText.value);
+console.log('nextBonusTierText=',nextBonusTierText.value);
 </script>
