@@ -1,0 +1,6 @@
+{
+  "name": "NIYA FIRST STEP TO SENBATSU 🌟 - Donation Tracker",
+  "description": "Real-time donation tracking app for Niya General Election Project with Google Sheets integration, reactive state, donation filters, and pixel art theme.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

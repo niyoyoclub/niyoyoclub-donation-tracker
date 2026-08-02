@@ -1,0 +1,369 @@
+<template>
+  <div class="relative z-10 my-4 max-w-4xl mx-auto px-2 sm:px-4 font-['Prompt','Chakra_Petch',sans-serif]">
+    <!-- Outer Card Frame -->
+    <div class="bg-[#fefae0] border-4 border-[#1e293b] rounded-3xl p-4 sm:p-6 shadow-[8px_8px_0px_#1e293b] relative overflow-hidden">
+      
+      <!-- Section Title -->
+      <div class="text-center mb-4">
+        <span class="inline-block text-xs sm:text-sm font-extrabold uppercase text-[#1e293b] tracking-widest bg-pink-100 border border-[#1e293b] px-3 py-1 rounded-full shadow-[2px_2px_0px_#1e293b]">
+          . SUPPORT OUR DREAM .
+        </span>
+      </div>
+
+      <!-- Tier Progress Bar -->
+      <div class="relative mb-6">
+        <!-- Progress Bar Track -->
+        <div class="relative w-full h-8 sm:h-10 bg-pink-100 border-3 border-[#1e293b] rounded-full p-1 overflow-hidden shadow-[inner_2px_2px_4px_rgba(0,0,0,0.1)]">
+          <!-- Animated Bar Fill -->
+          <div 
+            class="h-full bg-gradient-to-r from-pink-400 via-rose-400 to-pink-500 rounded-full transition-all duration-700 ease-out relative flex items-center justify-end pr-2 overflow-hidden"
+            :style="{ width: `${Math.min(100, Math.max(8, progressPercent))}%` }"
+          >
+            <!-- Striped Overlay Pattern -->
+            <div class="absolute inset-0 bg-[linear-gradient(45deg,rgba(255,255,255,0.25)_25%,transparent_25%,transparent_50%,rgba(255,255,255,0.25)_50%,rgba(255,255,255,0.25)_75%,transparent_75%,transparent)] bg-[length:16px_16px] animate-[stripe_1s_linear_infinite]"></div>
+            
+            <!-- Glow dot on tip -->
+            <div class="w-3 h-3 bg-white rounded-full shadow-md animate-ping"></div>
+          </div>
+
+          <!-- Percent Label Callout -->
+          <div class="absolute right-3 top-1/2 -translate-y-1/2 font-['Pixelify_Sans',sans-serif] font-bold text-sm sm:text-lg text-pink-700 drop-shadow-[1px_1px_0px_#ffffff]">
+            {{ progressPercent }}%
+          </div>
+        </div>
+
+        <!-- Tier Marker Ticks Below Bar -->
+        <div class="flex justify-between items-center px-2 mt-1 text-[10px] sm:text-xs font-bold text-[#1e293b] uppercase">
+          <span :class="totalAmount >= 20000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">TIER 1</span>
+          <span :class="totalAmount >= 50000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">TIER 2</span>
+          <span :class="totalAmount >= 80000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">TIER 3</span>
+          <span :class="totalAmount >= 110000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">TIER 4</span>
+          <span :class="totalAmount >= 133333 ? 'text-pink-600 font-extrabold' : 'opacity-60'">TIER 5</span>
+        </div>
+      </div>
+
+      <!-- Current Tier Status Badge -->
+      <div class="text-center mb-3">
+        <div class="inline-flex items-center gap-1.5 px-4 py-1.5 bg-amber-300 border-2 border-[#1e293b] rounded-full text-xs sm:text-sm font-extrabold text-[#1e293b] shadow-[3px_3px_0px_#1e293b]">
+          <span>🏆 CURRENT TIER: {{ currentTierObject.name.toUpperCase() }} • {{ totalAmount >= state.config.targetGoal ? 'TOP TIER REACHED!' : currentTierObject.description }}</span>
+        </div>
+      </div>
+
+      <!-- Main Raised Big Amount Display -->
+      <div class="text-center my-4">
+        <div class="text-4xl sm:text-6xl md:text-7xl font-extrabold text-[#e63946] font-['Pixelify_Sans','Press_Start_2P',sans-serif] tracking-tight drop-shadow-[3px_3px_0px_#1e293b] leading-none">
+          ฿{{ formatMoney(totalAmount) }}
+        </div>
+        <div class="text-sm sm:text-base font-bold text-[#457b9d] font-mono mt-1">
+          / ฿{{ formatMoney(state.config.targetGoal) }}
+          <span v-if="activeBonusTierMultiplier > 0" class="ml-2 inline-block px-2 py-0.5 bg-emerald-100 text-emerald-800 border border-emerald-600 rounded text-xs">
+            +{{ Math.round(activeBonusTierMultiplier * 100) }}% Bonus = ฿{{ formatMoney(effectiveAmount) }}
+          </span>
+        </div>
+      </div>
+
+      <!-- 3 Key Metric Pills Row -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 my-6">
+        
+        <!-- Goal Pill -->
+        <div class="bg-[#ff80ab] border-2 border-[#1e293b] rounded-2xl p-2.5 text-center text-white shadow-[3px_3px_0px_#1e293b]">
+          <div class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-pink-100 flex items-center justify-center gap-1">
+            <Target class="w-3.5 h-3.5" />
+            <span>GOAL</span>
+          </div>
+          <div class="text-lg sm:text-xl font-extrabold font-['Pixelify_Sans',sans-serif] mt-0.5">
+            ฿{{ formatMoney(state.config.targetGoal) }}
+          </div>
+        </div>
+
+        <!-- Remaining Pill -->
+        <div class="bg-[#ffd166] border-2 border-[#1e293b] rounded-2xl p-2.5 text-center text-[#1e293b] shadow-[3px_3px_0px_#1e293b]">
+          <div class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-amber-900 flex items-center justify-center gap-1">
+            <Hourglass class="w-3.5 h-3.5" />
+            <span>REMAINING</span>
+          </div>
+          <div class="text-lg sm:text-xl font-extrabold font-['Pixelify_Sans',sans-serif] mt-0.5">
+            ฿{{ formatMoney(remainingAmount) }}
+          </div>
+        </div>
+
+        <!-- Supporters Pill -->
+        <div class="bg-[#70a2ff] border-2 border-[#1e293b] rounded-2xl p-2.5 text-center text-white shadow-[3px_3px_0px_#1e293b]">
+          <div class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-blue-100 flex items-center justify-center gap-1">
+            <Users class="w-3.5 h-3.5" />
+            <span>SUPPORTERS</span>
+          </div>
+          <div class="text-lg sm:text-xl font-extrabold font-['Pixelify_Sans',sans-serif] mt-0.5">
+            {{ totalSupporters }} PEOPLE
+          </div>
+        </div>
+
+      </div>
+
+      <!-- QR Codes & Payment Cards Row -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+        
+        <!-- Left: Scan To Donate Card -->
+        <div class="bg-white border-3 border-[#1e293b] rounded-2xl p-4 shadow-[4px_4px_0px_#1e293b] flex flex-col items-center text-center">
+          <!-- Title Badge -->
+          <div class="bg-[#ff5252] text-white text-xs font-extrabold uppercase px-3 py-1 rounded-full border border-[#1e293b] shadow-[1px_1px_0px_#1e293b] mb-3">
+            SCAN TO DONATE
+          </div>
+
+          <!-- QR Code Container -->
+          <div class="relative bg-white p-2 border-2 border-[#1e293b] rounded-xl shadow-inner mb-3 group cursor-pointer" @click="showQrModal = true">
+            <!-- Simulated PromptPay / SCB QR SVG -->
+            <div class="w-36 h-36 sm:w-40 sm:h-40 bg-slate-50 border border-slate-200 rounded-lg p-1 flex flex-col items-center justify-center relative">
+              <!-- Custom SVG QR code design with SCB Logo in center -->
+              <svg viewBox="0 0 100 100" class="w-full h-full text-slate-900 fill-current">
+                <!-- Finder patterns -->
+                <rect x="5" y="5" width="25" height="25" fill="#1e293b" />
+                <rect x="9" y="9" width="17" height="17" fill="white" />
+                <rect x="13" y="13" width="9" height="9" fill="#4c1d95" />
+
+                <rect x="70" y="5" width="25" height="25" fill="#1e293b" />
+                <rect x="74" y="9" width="17" height="17" fill="white" />
+                <rect x="78" y="13" width="9" height="9" fill="#4c1d95" />
+
+                <rect x="5" y="70" width="25" height="25" fill="#1e293b" />
+                <rect x="9" y="74" width="17" height="17" fill="white" />
+                <rect x="13" y="78" width="9" height="9" fill="#4c1d95" />
+
+                <!-- Random data dots for realistic QR -->
+                <rect x="35" y="10" width="6" height="6" />
+                <rect x="45" y="15" width="6" height="6" />
+                <rect x="55" y="8" width="6" height="6" />
+                <rect x="38" y="25" width="6" height="6" />
+                <rect x="52" y="22" width="6" height="6" />
+
+                <rect x="10" y="38" width="6" height="6" />
+                <rect x="20" y="45" width="6" height="6" />
+                <rect x="80" y="38" width="6" height="6" />
+                <rect x="70" y="48" width="6" height="6" />
+
+                <rect x="38" y="72" width="6" height="6" />
+                <rect x="50" y="82" width="6" height="6" />
+                <rect x="62" y="75" width="6" height="6" />
+                <rect x="75" y="85" width="6" height="6" />
+                <rect x="85" y="70" width="6" height="6" />
+              </svg>
+
+              <!-- Center SCB Logo Overlay -->
+              <div class="absolute inset-0 m-auto w-10 h-10 bg-[#4c1d95] rounded-full border-2 border-white flex items-center justify-center shadow-md">
+                <span class="text-yellow-400 font-extrabold text-[10px]">SCB</span>
+              </div>
+            </div>
+
+            <!-- Hover hint -->
+            <div class="absolute inset-0 bg-slate-900/60 rounded-xl flex items-center justify-center text-white text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity">
+              คลิกเพื่อขยาย QR
+            </div>
+          </div>
+
+          <!-- Account Details -->
+          <div class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2 text-xs font-bold text-[#1e293b] space-y-1">
+            <div class="flex items-center justify-center gap-1.5 text-purple-900 font-extrabold">
+              <span class="px-1.5 py-0.5 bg-purple-200 text-purple-900 rounded text-[10px]">{{ state.config.bankName }}</span>
+              <span class="font-mono text-sm tracking-wide">{{ state.config.accountNumber }}</span>
+            </div>
+            <div class="text-slate-600 text-[11px]">
+              ชื่อบัญชี: <span class="text-slate-900">{{ state.config.accountName }}</span>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex items-center gap-2 mt-3 w-full">
+            <button 
+              @click="copyAccount" 
+              class="flex-1 py-1.5 px-3 bg-slate-100 hover:bg-slate-200 border-2 border-[#1e293b] rounded-xl text-xs font-bold text-[#1e293b] flex items-center justify-center gap-1 active:translate-y-0.5 transition-all"
+            >
+              <Copy class="w-3.5 h-3.5" />
+              <span>{{ copied ? 'คัดลอกแล้ว!' : 'คัดลอกเลขบัญชี' }}</span>
+            </button>
+            
+            <button 
+              @click="$emit('openSlipModal')" 
+              class="flex-1 py-1.5 px-3 bg-pink-500 hover:bg-pink-600 border-2 border-[#1e293b] rounded-xl text-xs font-bold text-white flex items-center justify-center gap-1 shadow-[2px_2px_0px_#1e293b] active:translate-y-0.5 transition-all"
+            >
+              <Upload class="w-3.5 h-3.5" />
+              <span>แจ้งบริจาค</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: Scan For Updates Card -->
+        <div class="bg-white border-3 border-[#1e293b] rounded-2xl p-4 shadow-[4px_4px_0px_#1e293b] flex flex-col items-center text-center">
+          <!-- Title Badge -->
+          <div class="bg-[#ff5252] text-white text-xs font-extrabold uppercase px-3 py-1 rounded-full border border-[#1e293b] shadow-[1px_1px_0px_#1e293b] mb-3">
+            SCAN FOR UPDATES
+          </div>
+
+          <!-- Community QR Code Container -->
+          <div class="relative bg-white p-2 border-2 border-[#1e293b] rounded-xl shadow-inner mb-3">
+            <div class="w-36 h-36 sm:w-40 sm:h-40 bg-emerald-50 border border-emerald-200 rounded-lg p-1 flex flex-col items-center justify-center relative">
+              <!-- SVG Community QR -->
+              <svg viewBox="0 0 100 100" class="w-full h-full text-emerald-900 fill-current">
+                <rect x="5" y="5" width="25" height="25" fill="#065f46" />
+                <rect x="9" y="9" width="17" height="17" fill="white" />
+                <rect x="13" y="13" width="9" height="9" fill="#059669" />
+
+                <rect x="70" y="5" width="25" height="25" fill="#065f46" />
+                <rect x="74" y="9" width="17" height="17" fill="white" />
+                <rect x="78" y="13" width="9" height="9" fill="#059669" />
+
+                <rect x="5" y="70" width="25" height="25" fill="#065f46" />
+                <rect x="9" y="74" width="17" height="17" fill="white" />
+                <rect x="13" y="78" width="9" height="9" fill="#059669" />
+
+                <rect x="40" y="8" width="6" height="6" />
+                <rect x="50" y="18" width="6" height="6" />
+                <rect x="36" y="28" width="6" height="6" />
+
+                <rect x="12" y="42" width="6" height="6" />
+                <rect x="22" y="52" width="6" height="6" />
+                <rect x="78" y="42" width="6" height="6" />
+
+                <rect x="42" y="78" width="6" height="6" />
+                <rect x="68" y="82" width="6" height="6" />
+                <rect x="80" y="72" width="6" height="6" />
+              </svg>
+
+              <!-- Center Niya Avatar -->
+              <div class="absolute inset-0 m-auto w-10 h-10 bg-pink-100 rounded-full border-2 border-pink-500 overflow-hidden shadow-md flex items-center justify-center font-bold text-xs text-pink-600">
+                🌸 Niya
+              </div>
+            </div>
+          </div>
+
+          <!-- Community Link CTA -->
+          <div class="text-xs font-bold text-[#1e293b] mb-3">
+            เข้าร่วมคอมมูนิตี้ ติดตามความเคลื่อนไหว!
+          </div>
+
+          <a 
+            :href="state.config.communityLink" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="w-full py-2 px-3 bg-emerald-500 hover:bg-emerald-600 border-2 border-[#1e293b] rounded-xl text-xs font-bold text-white flex items-center justify-center gap-1.5 shadow-[2px_2px_0px_#1e293b] active:translate-y-0.5 transition-all"
+          >
+            <MessageCircle class="w-4 h-4" />
+            <span>Join our community!</span>
+            <ExternalLink class="w-3 h-3 ml-auto" />
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Bottom Thank You Banner -->
+      <div class="bg-[#1e293b] text-white rounded-2xl p-2.5 text-center font-extrabold text-xs sm:text-sm tracking-wider uppercase border-2 border-[#1e293b] shadow-[3px_3px_0px_#ff80ab] flex items-center justify-center gap-2">
+        <span>♥</span>
+        <span>THANK YOU FOR YOUR SUPPORT</span>
+        <span>♥</span>
+      </div>
+
+      <!-- Sub-footer Last Update -->
+      <div class="mt-3 flex justify-center">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-[#ff80ab] border border-[#1e293b] rounded-full text-white font-bold text-[11px] shadow-[1px_1px_0px_#1e293b]">
+          <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+          <span>LAST UPDATE {{ lastUpdate }}</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- QR Modal Zoom -->
+    <div v-if="showQrModal" class="fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-sm flex items-center justify-center p-4" @click.self="showQrModal = false">
+      <div class="bg-white border-4 border-[#1e293b] rounded-3xl p-6 max-w-sm w-full text-center shadow-[8px_8px_0px_#1e293b] relative">
+        <button @click="showQrModal = false" class="absolute top-3 right-3 p-1 bg-slate-100 hover:bg-slate-200 border border-[#1e293b] rounded-full">
+          <X class="w-5 h-5 text-[#1e293b]" />
+        </button>
+        
+        <h3 class="text-lg font-bold text-[#1e293b] mb-2 font-['Chakra_Petch']">
+          สแกนบริจาคผ่าน PromptPay
+        </h3>
+
+        <div class="bg-purple-50 p-4 border-2 border-[#1e293b] rounded-2xl my-3 inline-block">
+          <div class="w-56 h-56 bg-white p-2 rounded-xl border border-slate-300 relative flex items-center justify-center">
+            <svg viewBox="0 0 100 100" class="w-full h-full text-slate-900 fill-current">
+              <rect x="5" y="5" width="25" height="25" fill="#1e293b" />
+              <rect x="9" y="9" width="17" height="17" fill="white" />
+              <rect x="13" y="13" width="9" height="9" fill="#4c1d95" />
+
+              <rect x="70" y="5" width="25" height="25" fill="#1e293b" />
+              <rect x="74" y="9" width="17" height="17" fill="white" />
+              <rect x="78" y="13" width="9" height="9" fill="#4c1d95" />
+
+              <rect x="5" y="70" width="25" height="25" fill="#1e293b" />
+              <rect x="9" y="74" width="17" height="17" fill="white" />
+              <rect x="13" y="78" width="9" height="9" fill="#4c1d95" />
+
+              <rect x="35" y="10" width="6" height="6" />
+              <rect x="45" y="15" width="6" height="6" />
+              <rect x="55" y="8" width="6" height="6" />
+              <rect x="38" y="25" width="6" height="6" />
+              <rect x="52" y="22" width="6" height="6" />
+              <rect x="38" y="72" width="6" height="6" />
+              <rect x="50" y="82" width="6" height="6" />
+              <rect x="62" y="75" width="6" height="6" />
+            </svg>
+            <div class="absolute inset-0 m-auto w-12 h-12 bg-[#4c1d95] rounded-full border-2 border-white flex items-center justify-center shadow-lg">
+              <span class="text-yellow-400 font-extrabold text-xs">SCB</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-xs font-bold text-slate-700 font-mono">
+          {{ state.config.bankName }} {{ state.config.accountNumber }}
+        </div>
+        <div class="text-xs text-slate-500 mb-4">
+          {{ state.config.accountName }}
+        </div>
+
+        <button @click="copyAccount" class="w-full py-2 bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs rounded-xl border-2 border-[#1e293b]">
+          {{ copied ? 'คัดลอกเลขบัญชีเรียบร้อย!' : 'คัดลอกเลขบัญชี' }}
+        </button>
+      </div>
+    </div>
+
+  </div>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue';
+import { 
+  state, 
+  totalAmount, 
+  effectiveAmount, 
+  activeBonusTierMultiplier, 
+  remainingAmount, 
+  progressPercent, 
+  currentTierObject, 
+  totalSupporters, 
+  lastUpdate 
+} from '../store/donationStore';
+import { Target, Hourglass, Users, Copy, Upload, MessageCircle, ExternalLink, X } from 'lucide-vue-next';
+
+defineEmits(['openSlipModal']);
+
+const copied = ref(false);
+const showQrModal = ref(false);
+
+function formatMoney(val: number): string {
+  return new Intl.NumberFormat('th-TH').format(val);
+}
+
+function copyAccount() {
+  navigator.clipboard.writeText(state.config.accountNumber);
+  copied.value = true;
+  setTimeout(() => {
+    copied.value = false;
+  }, 2500);
+}
+</script>
+
+<style scoped>
+@keyframes stripe {
+  0% { background-position: 0 0; }
+  100% { background-position: 16px 0; }
+}
+</style>
