@@ -1,7 +1,7 @@
 {
   "name": "niyoyoclub-donation-tracker",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "scripts": {
     "dev": "tsx server.ts",
@@ -15,6 +15,7 @@
     "@tailwindcss/vite": "^4.1.14",
     "@vitejs/plugin-react": "^5.0.4",
     "@vitejs/plugin-vue": "^6.0.8",
+    "date-fns": "^4.4.0",
     "dotenv": "^17.2.3",
     "express": "^4.21.2",
     "lucide-react": "^0.546.0",

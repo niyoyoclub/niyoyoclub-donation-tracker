@@ -1,6 +1,7 @@
 import { reactive, ref, computed } from 'vue';
 import { DonationTransaction, TierGoal, ProjectConfig, FilterState, SupporterLeaderboardItem } from '../types';
-import { INITIAL_CONFIG, INITIAL_TIERS, INITIAL_TRANSACTIONS } from '../data/initialData';
+import { INITIAL_CONFIG, INITIAL_TIERS, INITIAL_TRANSACTIONS, BONUS_TIER_TEXTS } from '../data/initialData';
+import { format } from 'date-fns';
 
 // Reactive State
 export const state = reactive<{
@@ -23,11 +24,13 @@ export const state = reactive<{
   },
 });
 
+const now = new Date();
+
 export const isLoading = ref(false);
 export const isSyncing = ref(false);
-export const lastUpdate = ref<string>('01 Aug 2026 • 23:49');
+export const lastUpdate = ref<string>(format(now, "dd MMM yyyy '•' HH:mm"));
 export const error = ref<string | null>(null);
-export const isDemoMode = ref(true);
+export const isDemoMode = ref(false);
 
 // Helper date formatter
 function formatCurrentTimestamp(): string {
@@ -66,9 +69,9 @@ export const effectiveAmount = computed(() => {
 export const totalSupporters = computed(() => {
   // If in demo mode with sample data, offset to represent 260 supporters as shown in design
   const uniqueNames = new Set(state.transactions.map(t => t.supporterName.trim().toLowerCase())).size;
-  if (isDemoMode.value && state.transactions.length <= 20) {
-    return Math.max(260, uniqueNames + 242);
-  }
+  // if (isDemoMode.value && state.transactions.length <= 20) {
+  //   return Math.max(260, uniqueNames + 242);
+  // }
   return uniqueNames;
 });
 
@@ -97,6 +100,14 @@ export const currentTierLevel = computed(() => {
 export const currentTierObject = computed(() => {
   const lvl = currentTierLevel.value;
   return state.tiers.find(t => t.level === lvl) || state.tiers[0];
+});
+
+export const currentTierText = computed(() => {
+  return BONUS_TIER_TEXTS[currentTierObject.value];
+});
+
+export const nextTierText = computed(() => {
+  return BONUS_TIER_TEXTS[currentTierObject.value + 1];
 });
 
 // Reactive Filtering & Sorting

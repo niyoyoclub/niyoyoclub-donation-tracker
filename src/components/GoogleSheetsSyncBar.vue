@@ -55,7 +55,7 @@
 
       <!-- Google Sheet URL Input Row -->
       <div class="space-y-2">
-        <label class="block text-xs font-bold text-[#1e293b] flex items-center justify-between">
+        <!--<label class="block text-xs font-bold text-[#1e293b] flex items-center justify-between">
           <span class="flex items-center gap-1">
             <FileSpreadsheet class="w-4 h-4 text-emerald-600" />
             <span>Link Google Sheet (CSV / Published Web Link)</span>
@@ -65,15 +65,15 @@
             <HelpCircle class="w-3.5 h-3.5" />
             <span>วิธีเปิดเผย Google Sheet เป็น CSV</span>
           </button>
-        </label>
+        </label>-->
 
         <div class="flex gap-2">
-          <input 
+          <!--input 
             type="url" 
             v-model="inputSheetUrl" 
             placeholder="วาง Link Google Sheet ที่นี่ (เช่น https://docs.google.com/spreadsheets/d/...)" 
             class="flex-1 px-3 py-1.5 bg-slate-50 border-2 border-[#1e293b] rounded-xl text-xs font-mono text-slate-800 focus:bg-white focus:outline-none focus:ring-2 focus:ring-pink-400"
-          />
+          /-->
 
           <button 
             @click="saveAndSync" 

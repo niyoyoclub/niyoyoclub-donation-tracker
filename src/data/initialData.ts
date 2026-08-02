@@ -4,27 +4,59 @@ export const INITIAL_CONFIG: ProjectConfig = {
   projectName: 'GENERAL ELECTION PROJECT FOR NIYA',
   hashtag: '#NiyaFirstStepToSenbatsu',
   motto: 'ONE DREAM • FIRST STEP TO SENBATSU',
-  sheetUrl: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_MONET_ELECTION_2026/pub?output=csv',
+  sheetUrl: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQjjo3Gd1VwUWxVHYEy01Rar9ueGqpxeiQtpRR-Q9U1IxD5ew15gf0YQ0KPtyGAbj8XAKO8JXLm_RjF/pub?gid=0&single=true&output=csv',
   autoRefreshInterval: 30,
   targetGoal: 68000,
   bankName: 'KBNK',
   accountNumber: '236-1-62262-9',
   accountName: 'นาย วัฒนชัย ยิ้มงาม',
   communityLink: 'https://line.me/ti/g2/hfQvhsWKm0DCpXR7YZyQ9C4Gd7gk01DBm2Qitg',
-  activeBonusTierText: '[NOW] BONUS TIER 5 (DONATION +50%)',
-  nextBonusTierText: 'BONUS TIER 6 (DONATION +100%)',
+  activeBonusTierText: '[NOW]',
+  nextBonusTierText: '[NEXT]',
 };
 
-export const INITIAL_TIERS: TierGoal[] = [
-  { level: 1, name: 'Tier 1', targetAmount: 3400, bonusMultiplier: 0.1, description: 'เริ่มต้นการเดินทาง 1,330 Tokens', isReached: true },
-  { level: 2, name: 'Tier 2', targetAmount: 13600, bonusMultiplier: 0.2, description: 'ปลดล็อกโบนัส 2,660 Tokens', isReached: true },
-  { level: 3, name: 'Tier 3', targetAmount: 23800, bonusMultiplier: 0.35, description: 'ปลดล็อกโบนัส 4,655 Tokens', isReached: true },
-  { level: 4, name: 'Tier 4', targetAmount: 34000, bonusMultiplier: 0.5, description: 'ปลดล็อกโบนัส  6,650 Tokens', isReached: true },
-  { level: 5, name: 'Tier 5', targetAmount: 51000, bonusMultiplier: 0.75, description: 'เป้าหมายหลัก 9,970 Tokens', isReached: true },
-  { level: 6, name: 'Tier 6', targetAmount: 68000, bonusMultiplier: 1.0, description: 'SUPER BONUS TIER 13,295 Tokens', isReached: false },
+export const BONUS_TIER_TEXTS = [
+  'NOT YET BONUS TIER (+1,705 Tokens)',
+  'BONUS TIER 1 (+3,000 Tokens)',
+  'BONUS TIER 2 (+4,000 Tokens)',
+  'BONUS TIER 3 (+6,000 Tokens)',
+  'BONUS TIER 4 (+8,000 Tokens)',
+  'BONUS TIER 5 (+11,000 Tokens)',
+  'SUPER BONUS TIER (+15,000 Tokens)',
+  'COMPLETED +15,000 Tokens'
 ];
 
+export const INITIAL_TIERS: TierGoal[] = [
+  { level: 0, name: 'Tier 0', targetAmount: 0, bonusMultiplier: 0.09, description: 'เริ่มต้นการเดินทาง 1,705 Tokens', isReached: true },
+  { level: 1, name: 'Tier 1', targetAmount: 3400, bonusMultiplier: 0.1, description: 'ปลดล็อกโบนัส 3,000 Tokens', isReached: true },
+  { level: 2, name: 'Tier 2', targetAmount: 13600, bonusMultiplier: 0.2, description: 'ปลดล็อกโบนัส 4,00 Tokens', isReached: true },
+  { level: 3, name: 'Tier 3', targetAmount: 23800, bonusMultiplier: 0.35, description: 'ปลดล็อกโบนัส 6,000 Tokens', isReached: true },
+  { level: 4, name: 'Tier 4', targetAmount: 34000, bonusMultiplier: 0.5, description: 'ปลดล็อกโบนัส  8,000 Tokens', isReached: true},
+  { level: 5, name: 'Tier 5', targetAmount: 51000, bonusMultiplier: 0.75, description: 'เป้าหมายหลัก 11,000 Tokens', isReached: true },
+  { level: 6, name: 'Tier 6', targetAmount: 68000, bonusMultiplier: 1.0, description: 'SUPER BONUS TIER 15,000 Tokens', isReached: false },
+];
+
+export function getActiveBonusTierText(currentAmount: number) {
+  let tier = INITIAL_TIERS.map(t => (t) => {
+    if (currentAmount < t.targetAmount){
+      return t.level-1;
+    }
+    else {
+      return INITIAL_TIERS.length-1;    
+    }
+  });
+
+  return BONUS_TIER_TEXTS[tier];
+}
+
+export function getNextBonusTierText(currentAmount: number) {
+  return getActiveBonusTierText(currentAmount) + 1;
+}
+
 // Sample realistic supporters list to equal 260 supporters & ~156,752 THB total
+export const INITIAL_TRANSACTIONS: DonationTransaction[] = [
+];
+/*
 export const INITIAL_TRANSACTIONS: DonationTransaction[] = [
   {
     id: 'TX-10260',
@@ -210,3 +242,4 @@ export const INITIAL_TRANSACTIONS: DonationTransaction[] = [
     status: 'verified'
   }
 ];
+*/
