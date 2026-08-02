@@ -17,11 +17,11 @@ export const INITIAL_CONFIG: ProjectConfig = {
 
 export const BONUS_TIER_TEXTS = [
   'NOT YET BONUS TIER (+1,705 Tokens)',
-  'BONUS TIER 1 (+3,000 Tokens)',
-  'BONUS TIER 2 (+4,000 Tokens)',
-  'BONUS TIER 3 (+6,000 Tokens)',
-  'BONUS TIER 4 (+8,000 Tokens)',
-  'BONUS TIER 5 (+11,000 Tokens)',
+  'BONUS TIER 1 (+2,290 Tokens)',
+  'BONUS TIER 2 (+2,880 Tokens)',
+  'BONUS TIER 3 (+4,050 Tokens)',
+  'BONUS TIER 4 (+6,395 Tokens)',
+  'BONUS TIER 5 (+11,090 Tokens)',
   'SUPER BONUS TIER (+15,000 Tokens)',
   'COMPLETED +15,000 Tokens'
 ];
