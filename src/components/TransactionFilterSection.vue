@@ -76,7 +76,7 @@
           ทั้งหมด
         </button>
 
-        <button 
+        <!--<button 
           v-for="tier in state.tiers" 
           :key="tier.level"
           @click="state.filters.tier = String(tier.level)"
@@ -85,7 +85,7 @@
         >
           <span>{{ tier.name }}</span>
           <span class="text-[9px] opacity-80">(≥฿{{ formatShort(tier.targetAmount) }})</span>
-        </button>
+        </button>-->
       </div>
 
       <!-- Expandable Advanced Filters Panel -->

@@ -337,7 +337,7 @@ export function exportTransactionsCSV() {
   const encodedUri = encodeURI(csvContent);
   const link = document.createElement('a');
   link.setAttribute('href', encodedUri);
-  link.setAttribute('download', `Monet_Donations_${new Date().toISOString().slice(0, 10)}.csv`);
+  link.setAttribute('download', `NIYA_Donations_${new Date().toISOString().slice(0, 10)}.csv`);
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
