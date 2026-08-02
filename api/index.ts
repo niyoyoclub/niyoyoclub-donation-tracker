@@ -1,9 +1,8 @@
-/*
 import express from "express";
 import path from "path";
 import { createServer as createViteServer } from "vite";
 
-async function startServer() {
+export async function startServer() {
   const app = express();
   const PORT = 3000;
 
@@ -58,11 +57,9 @@ async function startServer() {
       appType: "spa",
     });
     app.use(vite.middlewares);
-
     app.listen(PORT, "localhost", () => {
       console.log(`Server running on http://localhost:${PORT}`);
     });
-
   } else {
     const distPath = path.join(process.cwd(), "dist");
     app.use(express.static(distPath));
@@ -70,7 +67,8 @@ async function startServer() {
       res.sendFile(path.join(distPath, "index.html"));
     });
   }
+  
+  export default app;
 }
 
-startServer();
-*/
+
