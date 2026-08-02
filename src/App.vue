@@ -43,13 +43,13 @@
             <span>Top Donors</span>
           </button>
 
-          <button 
+          <!--<button 
             @click="showSettingsModal = true" 
             class="py-2 px-3 bg-slate-100 hover:bg-slate-200 border-2 border-[#1e293b] rounded-xl text-slate-800 transition-all flex items-center justify-center gap-1"
             title="ตั้งค่า"
           >
             <Settings class="w-4 h-4" />
-          </button>
+          </button>-->
 
         </div>
       </div>
@@ -97,57 +97,7 @@
                 <div class="w-full h-80 rounded-xl bg-pink-100 relative flex flex-col items-center justify-center overflow-hidden border border-pink-300">
                   
                   <!-- Vector Niya Idol Graphic -->
-                  <svg viewBox="0 0 200 260" class="w-full h-full object-cover">
-                    <defs>
-                      <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="#fbcfe8" />
-                        <stop offset="100%" stop-color="#f43f5e" />
-                      </linearGradient>
-                    </defs>
-
-                    <!-- Background aura -->
-                    <rect width="200" height="260" fill="url(#bgGrad)" />
-                    <circle cx="100" cy="110" r="80" fill="white" opacity="0.3" />
-
-                    <!-- Sparkles -->
-                    <polygon points="40,30 43,38 51,41 43,44 40,52 37,44 29,41 37,38" fill="white" />
-                    <polygon points="160,50 162,56 168,58 162,60 160,66 158,60 152,58 158,56" fill="#fef08a" />
-                    <polygon points="150,180 152,185 157,187 152,189 150,194 148,189 143,187 148,185" fill="white" />
-
-                    <!-- Anime Girl Niya Silhouette / Dress Representation -->
-                    <!-- Long Dark Hair -->
-                    <path d="M 60 70 Q 100 20 140 70 Q 165 140 155 210 Q 100 230 45 210 Q 35 140 60 70 Z" fill="#292524" />
-
-                    <!-- Face & Neck -->
-                    <ellipse cx="100" cy="105" rx="32" ry="38" fill="#fde047" opacity="0.2" />
-                    <ellipse cx="100" cy="105" rx="30" ry="35" fill="#fef08a" />
-                    <rect x="92" y="135" width="16" height="20" fill="#fef08a" />
-
-                    <!-- Cheeks & Eyes -->
-                    <ellipse cx="85" cy="110" rx="4" ry="2" fill="#f43f5e" opacity="0.5" />
-                    <ellipse cx="115" cy="110" rx="4" ry="2" fill="#f43f5e" opacity="0.5" />
-                    <!-- Eyes -->
-                    <ellipse cx="85" cy="102" rx="5" ry="7" fill="#1c1917" />
-                    <ellipse cx="115" cy="102" rx="5" ry="7" fill="#1c1917" />
-                    <circle cx="86" cy="100" r="2" fill="white" />
-                    <circle cx="116" cy="100" r="2" fill="white" />
-                    <!-- Gentle Smile -->
-                    <path d="M 93 118 Q 100 124 107 118" stroke="#be123c" stroke-width="2" fill="none" stroke-linecap="round" />
-
-                    <!-- Hair Bangs -->
-                    <path d="M 68 85 Q 85 100 100 85 Q 115 100 132 85 Q 110 65 90 70 Z" fill="#292524" />
-
-                    <!-- White Dress & Gloves -->
-                    <path d="M 70 150 Q 100 140 130 150 L 155 260 L 45 260 Z" fill="white" />
-                    <path d="M 70 150 L 50 200 L 65 210 L 80 160 Z" fill="#f1f5f9" />
-                    <path d="M 130 150 L 150 200 L 135 210 L 120 160 Z" fill="#f1f5f9" />
-
-                    <!-- Flower Bouquet in Hands -->
-                    <circle cx="100" cy="180" r="22" fill="#f472b6" />
-                    <circle cx="90" cy="175" r="14" fill="#fef08a" />
-                    <circle cx="110" cy="175" r="14" fill="#38bdf8" />
-                    <circle cx="100" cy="190" r="12" fill="#a7f3d0" />
-                  </svg>
+                  <img src="/assets/niya_profile.png" />
 
                   <div class="absolute bottom-2 left-2 right-2 bg-white/90 backdrop-blur p-2 rounded-xl border border-[#1e293b] text-center">
                     <div class="text-xs font-black text-[#1e293b] font-['Chakra_Petch']">NIYA BNK48</div>

@@ -6,7 +6,7 @@
       <!-- Section Title -->
       <div class="text-center mb-4">
         <span class="inline-block text-xs sm:text-sm font-extrabold uppercase text-[#1e293b] tracking-widest bg-pink-100 border border-[#1e293b] px-3 py-1 rounded-full shadow-[2px_2px_0px_#1e293b]">
-          . SUPPORT NIYA ซื้อ 5,000 Tokens .
+          . SUPPORT NIYA ซื้อ 1,000 Tokens • ผู้สนับสนุนทบ 4,000 Tokens .
         </span>
       </div>
 
@@ -33,21 +33,27 @@
         </div>
 
         <!-- Tier Marker Ticks Below Bar -->
-        <div class="flex justify-between items-center px-2 mt-1 text-[10px] sm:text-xs font-bold text-[#1e293b] uppercase">
-          <span style="width: 4.41%; text-align: left;" :class="totalAmount >= 0 ? 'text-pink-600 font-extrabold' : 'opacity-60'">T0</span>
-          <span style="width: 4.41%; text-align: left;" :class="totalAmount >= 3000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">T1</span>
+        <div class="flex justify-between items-center px-2 mt-1 text-[10px] sm:text-xs font-bold text-[#1e293b] uppercase">          
+          <span style="width: 8.82%; text-align: center;" :class="totalAmount >= 3000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">Tier 1</span>
           <span style="width: 8.82%; text-align: left;" :class="totalAmount >= 6000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">Tier 2</span>
           <span style="width: 17.65%; text-align: left;" :class="totalAmount >= 12000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">Tier 3</span>
           <span style="width: 35.29%; text-align: left;" :class="totalAmount >= 24000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">Tier 4</span>
-          <span style="width: 29.41%; text-align: left;" :class="totalAmount >= 48000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">Tier 5</span>
-          <span style="width: 4.41%; text-align: left;" :class="totalAmount >= 68000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">Tier 6</span>          
+          <span style="width: 24.41%; text-align: left;" :class="totalAmount >= 48000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">Tier 5</span>
+          <span style="width: 9.41%; text-align: right;" :class="totalAmount >= 68000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">Tier 6</span>          
         </div>
       </div>
 
       <!-- Current Tier Status Badge -->
       <div class="text-center mb-3">
         <div class="inline-flex items-center gap-1.5 px-4 py-1.5 bg-amber-300 border-2 border-[#1e293b] rounded-full text-xs sm:text-sm font-extrabold text-[#1e293b] shadow-[3px_3px_0px_#1e293b]">
-          <span>🏆 CURRENT TIER: {{ currentTierObject.name.toUpperCase() }} • {{ totalAmount >= state.config.targetGoal ? 'TOP TIER REACHED!' : currentTierObject.description }}</span>
+          <span>🏆 CURRENT {{ currentTierObject.name.toUpperCase() }} • ฿{{ formatMoney(totalAmount) }} • {{ totalAmount >= state.config.targetGoal ? 'TOP TIER REACHED!' : currentTierObject.description }}</span>
+        </div>
+      </div>
+
+      <!-- Next Tier Status Badge -->
+      <div class="text-center mb-3">
+        <div class="inline-flex items-center gap-1.5 px-4 py-1.5 bg-amber-200 border-2 border-[#1e293b] rounded-full text-xs sm:text-sm font-extrabold text-[#1e293b] shadow-[3px_3px_0px_#1e293b]">          
+          <span>🏆 NEXT {{ nextTierObject.name.toUpperCase() }} • ฿{{ formatMoney(nextTierObject.targetAmount) }} • {{ nextTierObject.description }} </span>
         </div>
       </div>
 
@@ -116,44 +122,13 @@
           <div class="relative bg-white p-2 border-2 border-[#1e293b] rounded-xl shadow-inner mb-3 group cursor-pointer" @click="showQrModal = true">
             <!-- Simulated PromptPay / SCB QR SVG -->
             <div class="w-36 h-36 sm:w-40 sm:h-40 bg-slate-50 border border-slate-200 rounded-lg p-1 flex flex-col items-center justify-center relative">
-              <!-- Custom SVG QR code design with SCB Logo in center -->
-              <svg viewBox="0 0 100 100" class="w-full h-full text-slate-900 fill-current">
-                <!-- Finder patterns -->
-                <rect x="5" y="5" width="25" height="25" fill="#1e293b" />
-                <rect x="9" y="9" width="17" height="17" fill="white" />
-                <rect x="13" y="13" width="9" height="9" fill="#4c1d95" />
-
-                <rect x="70" y="5" width="25" height="25" fill="#1e293b" />
-                <rect x="74" y="9" width="17" height="17" fill="white" />
-                <rect x="78" y="13" width="9" height="9" fill="#4c1d95" />
-
-                <rect x="5" y="70" width="25" height="25" fill="#1e293b" />
-                <rect x="9" y="74" width="17" height="17" fill="white" />
-                <rect x="13" y="78" width="9" height="9" fill="#4c1d95" />
-
-                <!-- Random data dots for realistic QR -->
-                <rect x="35" y="10" width="6" height="6" />
-                <rect x="45" y="15" width="6" height="6" />
-                <rect x="55" y="8" width="6" height="6" />
-                <rect x="38" y="25" width="6" height="6" />
-                <rect x="52" y="22" width="6" height="6" />
-
-                <rect x="10" y="38" width="6" height="6" />
-                <rect x="20" y="45" width="6" height="6" />
-                <rect x="80" y="38" width="6" height="6" />
-                <rect x="70" y="48" width="6" height="6" />
-
-                <rect x="38" y="72" width="6" height="6" />
-                <rect x="50" y="82" width="6" height="6" />
-                <rect x="62" y="75" width="6" height="6" />
-                <rect x="75" y="85" width="6" height="6" />
-                <rect x="85" y="70" width="6" height="6" />
-              </svg>
+              <!-- Custom SVG QR code design with KBANK Logo in center -->
+              <img src="/assets/bank_qr_code.jpg" />
 
               <!-- Center SCB Logo Overlay -->
-              <div class="absolute inset-0 m-auto w-10 h-10 bg-[#4c1d95] rounded-full border-2 border-white flex items-center justify-center shadow-md">
+              <!--<div class="absolute inset-0 m-auto w-10 h-10 bg-[#4c1d95] rounded-full border-2 border-white flex items-center justify-center shadow-md">
                 <span class="text-yellow-400 font-extrabold text-[10px]">KBANK</span>
-              </div>
+              </div>-->
             </div>
 
             <!-- Hover hint -->
@@ -165,7 +140,7 @@
           <!-- Account Details -->
           <div class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2 text-xs font-bold text-[#1e293b] space-y-1">
             <div class="flex items-center justify-center gap-1.5 text-purple-900 font-extrabold">
-              <span class="px-1.5 py-0.5 bg-purple-200 text-purple-900 rounded text-[10px]">{{ state.config.bankName }}</span>
+              <span class="px-1.5 py-0.5 bg-green-500 text-white rounded text-[10px]">{{ state.config.bankName }}</span>
               <span class="font-mono text-sm tracking-wide">{{ state.config.accountNumber }}</span>
             </div>
             <div class="text-slate-600 text-[11px]">
@@ -183,13 +158,13 @@
               <span>{{ copied ? 'คัดลอกแล้ว!' : 'คัดลอกเลขบัญชี' }}</span>
             </button>
             
-            <button 
+            <!--<button 
               @click="$emit('openSlipModal')" 
               class="flex-1 py-1.5 px-3 bg-pink-500 hover:bg-pink-600 border-2 border-[#1e293b] rounded-xl text-xs font-bold text-white flex items-center justify-center gap-1 shadow-[2px_2px_0px_#1e293b] active:translate-y-0.5 transition-all"
             >
               <Upload class="w-3.5 h-3.5" />
               <span>แจ้งบริจาค</span>
-            </button>
+            </button>-->
           </div>
         </div>
 
@@ -204,36 +179,12 @@
           <div class="relative bg-white p-2 border-2 border-[#1e293b] rounded-xl shadow-inner mb-3">
             <div class="w-36 h-36 sm:w-40 sm:h-40 bg-emerald-50 border border-emerald-200 rounded-lg p-1 flex flex-col items-center justify-center relative">
               <!-- SVG Community QR -->
-              <svg viewBox="0 0 100 100" class="w-full h-full text-emerald-900 fill-current">
-                <rect x="5" y="5" width="25" height="25" fill="#065f46" />
-                <rect x="9" y="9" width="17" height="17" fill="white" />
-                <rect x="13" y="13" width="9" height="9" fill="#059669" />
-
-                <rect x="70" y="5" width="25" height="25" fill="#065f46" />
-                <rect x="74" y="9" width="17" height="17" fill="white" />
-                <rect x="78" y="13" width="9" height="9" fill="#059669" />
-
-                <rect x="5" y="70" width="25" height="25" fill="#065f46" />
-                <rect x="9" y="74" width="17" height="17" fill="white" />
-                <rect x="13" y="78" width="9" height="9" fill="#059669" />
-
-                <rect x="40" y="8" width="6" height="6" />
-                <rect x="50" y="18" width="6" height="6" />
-                <rect x="36" y="28" width="6" height="6" />
-
-                <rect x="12" y="42" width="6" height="6" />
-                <rect x="22" y="52" width="6" height="6" />
-                <rect x="78" y="42" width="6" height="6" />
-
-                <rect x="42" y="78" width="6" height="6" />
-                <rect x="68" y="82" width="6" height="6" />
-                <rect x="80" y="72" width="6" height="6" />
-              </svg>
+              <img src="/assets/opc_qr_code.jpg" />
 
               <!-- Center Niya Avatar -->
-              <div class="absolute inset-0 m-auto w-10 h-10 bg-pink-100 rounded-full border-2 border-pink-500 overflow-hidden shadow-md flex items-center justify-center font-bold text-xs text-pink-600">
+              <!--<div class="absolute inset-0 m-auto w-10 h-10 bg-pink-100 rounded-full border-2 border-pink-500 overflow-hidden shadow-md flex items-center justify-center font-bold text-xs text-pink-600">
                 🌸 Niya
-              </div>
+              </div>-->
             </div>
           </div>
 
@@ -286,36 +237,16 @@
 
         <div class="bg-purple-50 p-4 border-2 border-[#1e293b] rounded-2xl my-3 inline-block">
           <div class="w-56 h-56 bg-white p-2 rounded-xl border border-slate-300 relative flex items-center justify-center">
-            <svg viewBox="0 0 100 100" class="w-full h-full text-slate-900 fill-current">
-              <rect x="5" y="5" width="25" height="25" fill="#1e293b" />
-              <rect x="9" y="9" width="17" height="17" fill="white" />
-              <rect x="13" y="13" width="9" height="9" fill="#4c1d95" />
-
-              <rect x="70" y="5" width="25" height="25" fill="#1e293b" />
-              <rect x="74" y="9" width="17" height="17" fill="white" />
-              <rect x="78" y="13" width="9" height="9" fill="#4c1d95" />
-
-              <rect x="5" y="70" width="25" height="25" fill="#1e293b" />
-              <rect x="9" y="74" width="17" height="17" fill="white" />
-              <rect x="13" y="78" width="9" height="9" fill="#4c1d95" />
-
-              <rect x="35" y="10" width="6" height="6" />
-              <rect x="45" y="15" width="6" height="6" />
-              <rect x="55" y="8" width="6" height="6" />
-              <rect x="38" y="25" width="6" height="6" />
-              <rect x="52" y="22" width="6" height="6" />
-              <rect x="38" y="72" width="6" height="6" />
-              <rect x="50" y="82" width="6" height="6" />
-              <rect x="62" y="75" width="6" height="6" />
-            </svg>
-            <div class="absolute inset-0 m-auto w-12 h-12 bg-[#4c1d95] rounded-full border-2 border-white flex items-center justify-center shadow-lg">
-              <span class="text-yellow-400 font-extrabold text-xs">SCB</span>
-            </div>
+            <img src="/assets/bank_qr_code_big.jpg" />
+            
+            <!--<div class="absolute inset-0 m-auto w-12 h-12 bg-[#4c1d95] rounded-full border-2 border-white flex items-center justify-center shadow-lg">
+              <span class="text-yellow-400 font-extrabold text-xs">KBANK</span>
+            </div>-->
           </div>
         </div>
 
         <div class="text-xs font-bold text-slate-700 font-mono">
-          {{ state.config.bankName }} {{ state.config.accountNumber }}
+          <span class="px-1.5 py-0.5 bg-green-500 text-white rounded text-[10px]">{{ state.config.bankName }}</span> {{ state.config.accountNumber }}
         </div>
         <div class="text-xs text-slate-500 mb-4">
           {{ state.config.accountName }}
@@ -339,7 +270,8 @@ import {
   activeBonusTierMultiplier, 
   remainingAmount, 
   progressPercent, 
-  currentTierObject, 
+  currentTierObject,
+  nextTierObject,
   totalSupporters, 
   lastUpdate 
 } from '../store/donationStore';

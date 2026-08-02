@@ -102,12 +102,9 @@ export const currentTierObject = computed(() => {
   return state.tiers.find(t => t.level === lvl) || state.tiers[0];
 });
 
-export const currentTierText = computed(() => {
-  return BONUS_TIER_TEXTS[currentTierObject.value];
-});
-
-export const nextTierText = computed(() => {
-  return BONUS_TIER_TEXTS[currentTierObject.value + 1];
+export const nextTierObject = computed(() => {
+  const lvl = currentTierLevel.value + 1;
+  return state.tiers.find(t => t.level === lvl) || state.tiers[0];
 });
 
 // Reactive Filtering & Sorting
@@ -340,7 +337,7 @@ export function exportTransactionsCSV() {
   const encodedUri = encodeURI(csvContent);
   const link = document.createElement('a');
   link.setAttribute('href', encodedUri);
-  link.setAttribute('download', `Monet_Donations_${new Date().toISOString().slice(0, 10)}.csv`);
+  link.setAttribute('download', `NIYA_Donations_${new Date().toISOString().slice(0, 10)}.csv`);
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
