@@ -72,7 +72,7 @@
         </div>
         <div class="text-sm sm:text-base font-bold text-[#457b9d] font-mono mt-1">
           <span v-if="activeBonusTierMultiplier > 0" class="ml-2 inline-block px-2 py-0.5 bg-emerald-100 text-emerald-800 border border-emerald-600 rounded text-xs">
-            ผู้สนับสนุนทบ {{ formatMoney(activeBonusTierMultiplier) }} Tokens • ซื้อ {{ formatMoney(totalAmount/68) }} Tokens • รวม Vote {{ formatMoney(activeBonusTierMultiplier + totalAmount/68 + (totalAmount >= state.config.targetGoal ? 4000 : 0)) }} Tokens
+            จาก 2 กิจกรรม ผู้สนับสนุนทบ {{ formatMoney(activeBonusTierMultiplier) }} Tokens • ซื้อ {{ formatMoney(totalAmount/68) }} Tokens • รวม Vote {{ formatMoney(activeBonusTierMultiplier + totalAmount/68 + (totalAmount >= state.config.targetGoal ? 4000 : 0)) }} Tokens
           </span>
         </div>
       </div>
