@@ -38,25 +38,25 @@
         </div>
 
         <!-- Tier Marker Ticks Below Bar -->
-        <div class="flex justify-between items-center px-2 mt-1 text-[10px] sm:text-xs font-bold text-[#1e293b] uppercase">          
+        <div class="flex justify-between items-center px-2 mt-1 text-[10px] sm:text-xs font-bold text-[#1e293b] uppercase">
           <span style="width: 8.82%; text-align: center;" :class="totalAmount >= 3000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">Tier 1</span>
           <span style="width: 8.82%; text-align: left;" :class="totalAmount >= 6000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">Tier 2</span>
           <span style="width: 17.65%; text-align: left;" :class="totalAmount >= 12000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">Tier 3</span>
           <span style="width: 35.29%; text-align: left;" :class="totalAmount >= 24000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">Tier 4</span>
           <span style="width: 24.41%; text-align: left;" :class="totalAmount >= 48000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">Tier 5</span>
-          <span style="width: 9.41%; text-align: right;" :class="totalAmount >= 68000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">Tier 6</span>          
+          <span style="width: 9.41%; text-align: right;" :class="totalAmount >= 68000 ? 'text-pink-600 font-extrabold' : 'opacity-60'">Tier 6</span>
         </div>
       </div>
 
       <!-- Current Tier Status Badge -->
       <div class="text-center mb-3">
         <div class="inline-flex items-center gap-1.5 px-4 py-1.5 bg-amber-300 border-2 border-[#1e293b] rounded-full text-xs sm:text-sm font-extrabold text-[#1e293b] shadow-[3px_3px_0px_#1e293b]">
-          <span>🏆 CURRENT {{ currentTierObject.name.toUpperCase() }} • ฿{{ formatMoney(totalAmount) }} • {{ totalAmount >= state.config.targetGoal ? 'TOP TIER REACHED!' : currentTierObject.description }}</span>
+          <span>🏆 CURRENT {{ currentTierObject.name.toUpperCase() }} • ฿{{ formatMoney(totalAmount) }} • {{ currentTierObject.description }}</span>
         </div>
       </div>
 
       <!-- Next Tier Status Badge -->
-      <div v-show="isShowNextTier" class="text-center mb-3">
+      <div v-show="nextTierObject.targetAmount != 0" class="text-center mb-3">
         <div class="inline-flex items-center gap-1.5 px-4 py-1.5 bg-amber-200 border-2 border-[#1e293b] rounded-full text-xs sm:text-sm font-extrabold text-[#1e293b] shadow-[3px_3px_0px_#1e293b]">
           <span>🏆 NEXT {{ nextTierObject.name.toUpperCase() }} • ฿{{ formatMoney(nextTierObject.targetAmount) }} • {{ nextTierObject.description }} </span>
         </div>
@@ -86,7 +86,7 @@
             กิจกรรม 1,705 Tokens •
             Donate ซื้อ {{ formatMoney(totalAmount/68)}} Tokens •
             ผู้สนับสนุนทบ {{ formatMoney(activeBonusTierMultiplier - 1705 + Math.floor(totalAmount/68/250)*1000) }} Tokens •
-            รวม Vote {{ formatMoney(activeBonusTierMultiplier + totalAmount/68 + Math.floor(totalAmount/68/250)*1000 + (totalAmount >= state.config.targetGoal ? 4000 : 0)) }} Tokens
+            รวม Vote {{ formatMoney(activeBonusTierMultiplier + totalAmount/68 + Math.floor(totalAmount/68/250)*1000) }} Tokens
           </span>
         </div>
       </div>
@@ -301,14 +301,6 @@ import { Target, Hourglass, Users, Copy, Upload, MessageCircle, ExternalLink, X 
 defineEmits(['openSlipModal']);
 const copied = ref(false);
 const showQrModal = ref(false);
-
-const isShowNextTier = computed(() => {
-  let result = totalAmount.value <= state.config.targetGoal;
-  //console.log('totalAmount=', totalAmount.value);
-  //console.log('state.config.targetGoal=', state.config.targetGoal);
-  //console.log('result=', result);
-  return result;
-});
 
 function formatMoney(val: number): string {
   return new Intl.NumberFormat('th-TH').format(val);
