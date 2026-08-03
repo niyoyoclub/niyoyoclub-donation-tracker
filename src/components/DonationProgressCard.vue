@@ -6,7 +6,12 @@
       <!-- Section Title -->
       <div class="text-center mb-4">
         <span class="inline-block text-xs sm:text-sm font-extrabold uppercase text-[#1e293b] tracking-widest bg-pink-100 border border-[#1e293b] px-3 py-1 rounded-full shadow-[2px_2px_0px_#1e293b]">
-          . SUPPORT NIYA ซื้อ 1,000 Tokens • ผู้สนับสนุนทบ 4,000 Tokens .
+          . SUPPORT NIYA ซื้อ 1,000 Tokens • ราคา ฿68 ต่อ 1 Token .
+        </span>
+      </div>
+      <div class="text-center mb-4">
+        <span class="inline-block text-xs sm:text-sm font-extrabold uppercase text-[#1e293b] tracking-widest bg-pink-300 border border-[#1e293b] px-3 py-1 rounded-full shadow-[2px_2px_0px_#1e293b]">
+          . ซื้อครบหรือมากกว่า 1,000 Tokens • ผู้สนับสนุนทบให้อีก 4,000 Tokens .
         </span>
       </div>
 
