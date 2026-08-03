@@ -21,7 +21,7 @@ export const BONUS_TIER_TEXTS = [
   'BONUS TIER 2 (+2,880 Tokens)',
   'BONUS TIER 3 (+4,050 Tokens)',
   'BONUS TIER 4 (+6,395 Tokens)',
-  'BONUS TIER 5 (+11,090 Tokens)',
+  'BONUS TIER 5 (+10,300 Tokens)',
   'SUPER BONUS TIER (+15,000 Tokens)',
   'COMPLETED +15,000 Tokens'
 ];
@@ -32,7 +32,7 @@ export const INITIAL_TIERS: TierGoal[] = [
   { level: 2, name: 'Tier 2', targetAmount: 6000, bonusMultiplier: 2880, description: 'ปลดล็อกโบนัส 2,880 Tokens', isReached: true },
   { level: 3, name: 'Tier 3', targetAmount: 12000, bonusMultiplier: 4050, description: 'ปลดล็อกโบนัส 4,050 Tokens', isReached: true },
   { level: 4, name: 'Tier 4', targetAmount: 24000, bonusMultiplier: 6395, description: 'ปลดล็อกโบนัส  6,395 Tokens', isReached: true},
-  { level: 5, name: 'Tier 5', targetAmount: 48000, bonusMultiplier: 11090, description: 'ปลดล็อกโบนัส 11,090 Tokens', isReached: true },
+  { level: 5, name: 'Tier 5', targetAmount: 44000, bonusMultiplier: 10300, description: 'ปลดล็อกโบนัส 10,300 Tokens', isReached: true },
   { level: 6, name: 'Tier 6', targetAmount: 68000, bonusMultiplier: 15000, description: 'SUPER BONUS TIER 15,000 Tokens', isReached: false },
 ];
 
