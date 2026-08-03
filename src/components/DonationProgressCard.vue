@@ -11,7 +11,7 @@
       </div>
       <div class="text-center mb-4">
         <span class="inline-block text-xs sm:text-sm font-extrabold uppercase text-[#1e293b] tracking-widest bg-pink-300 border border-[#1e293b] px-3 py-1 rounded-full shadow-[2px_2px_0px_#1e293b]">
-          . ซื้อครบหรือมากกว่า 1,000 Tokens • ผู้สนับสนุนทบให้อีก 4,000 Tokens .
+          . ซื้อครบทุกๆ 250 Tokens • ผู้สนับสนุนทบให้อีก 1,000 Tokens • ทบสูงสุด 4,000 Tokens .
         </span>
       </div>
 
@@ -71,8 +71,22 @@
           / ฿{{ formatMoney(state.config.targetGoal) }}
         </div>
         <div class="text-sm sm:text-base font-bold text-[#457b9d] font-mono mt-1">
+          <span class="ml-2 inline-block px-2 py-0.5 bg-emerald-300 text-emerald-800 border border-emerald-600 rounded text-xs" style="text-align: left;">
+            • กิจกรรมบ้านใหม่น้องนีญ่า จำนวนสมาชิก 191 ท่าน ทบท่านละ 5 Tokens สิ้นสุด 30 Jun 26 23:59 ได้ 191 x 5 = 955 Tokens<br/>
+            • กิจกรรมส่งลิ้งค์แฟนแคมน้องนีญ่า จำนวนลิ้งค์ 75 ลิ้งค์ ทบลิ้งค์ละ 10 Tokens สิ้นสุด 31 Jul 26 20:00 ได้ 75 x 10 = 750 Tokens
+          </span>          
+        </div>
+        <div class="text-sm sm:text-base font-bold text-[#457b9d] font-mono mt-1">          
+          <span class="ml-2 inline-block px-2 py-0.5 bg-emerald-200 text-emerald-800 border border-emerald-600 rounded text-xs">
+            Token เริ่มต้น Token จาก 2 กิจกรรม ผู้สนับสนุนทบให้ 1,705 Tokens
+          </span>
+        </div>
+        <div class="text-sm sm:text-base font-bold text-[#457b9d] font-mono mt-1">
           <span v-if="activeBonusTierMultiplier > 0" class="ml-2 inline-block px-2 py-0.5 bg-emerald-100 text-emerald-800 border border-emerald-600 rounded text-xs">
-            จาก 2 กิจกรรม ผู้สนับสนุนทบ {{ formatMoney(activeBonusTierMultiplier) }} Tokens • ซื้อ {{ formatMoney(totalAmount/68) }} Tokens • รวม Vote {{ formatMoney(activeBonusTierMultiplier + totalAmount/68 + (totalAmount >= state.config.targetGoal ? 4000 : 0)) }} Tokens
+            กิจกรรม 1,705 Tokens •
+            Donate ซื้อ {{ formatMoney(totalAmount/68)}} Tokens •
+            ผู้สนับสนุนทบ {{ formatMoney(activeBonusTierMultiplier - 1705 + Math.floor(totalAmount/68/250)*1000) }} Tokens •
+            รวม Vote {{ formatMoney(activeBonusTierMultiplier + totalAmount/68 + Math.floor(totalAmount/68/250)*1000 + (totalAmount >= state.config.targetGoal ? 4000 : 0)) }} Tokens
           </span>
         </div>
       </div>
