@@ -11,7 +11,7 @@
       </div>
       <div class="text-center mb-4">
         <span class="inline-block text-xs sm:text-sm font-extrabold uppercase text-[#1e293b] tracking-widest bg-pink-300 border border-[#1e293b] px-3 py-1 rounded-full shadow-[2px_2px_0px_#1e293b]">
-          . ซื้อครบทุกๆ 250 Tokens • ผู้สนับสนุนทบให้อีก 1,000 Tokens ทบสูดสุด 4,000 Tokens .
+          . ซื้อครบทุกๆ 250 Tokens • ผู้สนับสนุนทบให้อีก 1,000 Tokens • ทบสูงสุด 4,000 Tokens .
         </span>
       </div>
 
@@ -83,7 +83,10 @@
         </div>
         <div class="text-sm sm:text-base font-bold text-[#457b9d] font-mono mt-1">
           <span v-if="activeBonusTierMultiplier > 0" class="ml-2 inline-block px-2 py-0.5 bg-emerald-100 text-emerald-800 border border-emerald-600 rounded text-xs">
-            กิจกรรม Donate ผู้สนับสนุนทบ {{ formatMoney(activeBonusTierMultiplier - 1705 + Math.floor(totalAmount/68/250)*1000) }} Tokens • ซื้อ {{ formatMoney(totalAmount/68)}} Tokens • รวม Vote {{ formatMoney(activeBonusTierMultiplier + totalAmount/68 + Math.floor(totalAmount/68/250)*1000 + (totalAmount >= state.config.targetGoal ? 4000 : 0)) }} Tokens
+            กิจกรรม 1,705 Tokens •
+            Donate ซื้อ {{ formatMoney(totalAmount/68)}} Tokens •
+            ผู้สนับสนุนทบ {{ formatMoney(activeBonusTierMultiplier - 1705 + Math.floor(totalAmount/68/250)*1000) }} Tokens •
+            รวม Vote {{ formatMoney(activeBonusTierMultiplier + totalAmount/68 + Math.floor(totalAmount/68/250)*1000 + (totalAmount >= state.config.targetGoal ? 4000 : 0)) }} Tokens
           </span>
         </div>
       </div>
