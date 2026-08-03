@@ -304,9 +304,9 @@ const showQrModal = ref(false);
 
 const isShowNextTier = computed(() => {
   let result = totalAmount.value <= state.config.targetGoal;
-  console.log('totalAmount=', totalAmount.value);
-  console.log('state.config.targetGoal=', state.config.targetGoal);
-  console.log('result=', result);
+  //console.log('totalAmount=', totalAmount.value);
+  //console.log('state.config.targetGoal=', state.config.targetGoal);
+  //console.log('result=', result);
   return result;
 });
 
