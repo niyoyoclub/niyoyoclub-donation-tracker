@@ -264,7 +264,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { 
   state, 
   totalAmount, 
@@ -280,12 +280,16 @@ import {
 import { Target, Hourglass, Users, Copy, Upload, MessageCircle, ExternalLink, X } from 'lucide-vue-next';
 
 defineEmits(['openSlipModal']);
-
-const isShowNextTier = ref(true);
 const copied = ref(false);
 const showQrModal = ref(false);
 
-isShowNextTier.value = totalAmount.value <= state.config.targetGoal;
+const isShowNextTier = computed(() => {
+  let result = totalAmount.value <= state.config.targetGoal;
+  console.log('totalAmount=', totalAmount.value);
+  console.log('state.config.targetGoal=', state.config.targetGoal);
+  console.log('result=', result);
+  return result;
+});
 
 function formatMoney(val: number): string {
   return new Intl.NumberFormat('th-TH').format(val);
