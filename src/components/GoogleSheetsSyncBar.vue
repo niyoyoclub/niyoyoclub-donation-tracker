@@ -169,7 +169,12 @@ function restartAutoSyncTimer() {
 }
 
 onMounted(() => {
+  //console.log("onMounted() called");
+
+  fetchFromGoogleSheet();
   restartAutoSyncTimer();
+
+  //console.log("onMounted() end");
 });
 
 onUnmounted(() => {
