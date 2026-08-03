@@ -6,7 +6,12 @@
       <!-- Section Title -->
       <div class="text-center mb-4">
         <span class="inline-block text-xs sm:text-sm font-extrabold uppercase text-[#1e293b] tracking-widest bg-pink-100 border border-[#1e293b] px-3 py-1 rounded-full shadow-[2px_2px_0px_#1e293b]">
-          . SUPPORT NIYA ซื้อ 1,000 Tokens • ผู้สนับสนุนทบ 4,000 Tokens .
+          . SUPPORT NIYA ซื้อ 1,000 Tokens • ราคา ฿68 ต่อ 1 Token .
+        </span>
+      </div>
+      <div class="text-center mb-4">
+        <span class="inline-block text-xs sm:text-sm font-extrabold uppercase text-[#1e293b] tracking-widest bg-pink-300 border border-[#1e293b] px-3 py-1 rounded-full shadow-[2px_2px_0px_#1e293b]">
+          . ซื้อครบหรือมากกว่า 1,000 Tokens • ผู้สนับสนุนทบให้อีก 4,000 Tokens .
         </span>
       </div>
 
@@ -51,8 +56,8 @@
       </div>
 
       <!-- Next Tier Status Badge -->
-      <div class="text-center mb-3">
-        <div class="inline-flex items-center gap-1.5 px-4 py-1.5 bg-amber-200 border-2 border-[#1e293b] rounded-full text-xs sm:text-sm font-extrabold text-[#1e293b] shadow-[3px_3px_0px_#1e293b]">          
+      <div v-show="isShowNextTier" class="text-center mb-3">
+        <div class="inline-flex items-center gap-1.5 px-4 py-1.5 bg-amber-200 border-2 border-[#1e293b] rounded-full text-xs sm:text-sm font-extrabold text-[#1e293b] shadow-[3px_3px_0px_#1e293b]">
           <span>🏆 NEXT {{ nextTierObject.name.toUpperCase() }} • ฿{{ formatMoney(nextTierObject.targetAmount) }} • {{ nextTierObject.description }} </span>
         </div>
       </div>
@@ -64,8 +69,10 @@
         </div>
         <div class="text-sm sm:text-base font-bold text-[#457b9d] font-mono mt-1">
           / ฿{{ formatMoney(state.config.targetGoal) }}
+        </div>
+        <div class="text-sm sm:text-base font-bold text-[#457b9d] font-mono mt-1">
           <span v-if="activeBonusTierMultiplier > 0" class="ml-2 inline-block px-2 py-0.5 bg-emerald-100 text-emerald-800 border border-emerald-600 rounded text-xs">
-            ผู้สนับสนุนทบ {{ formatMoney(activeBonusTierMultiplier) }} Tokens
+            ผู้สนับสนุนทบ {{ formatMoney(activeBonusTierMultiplier) }} Tokens • ซื้อ {{ formatMoney(totalAmount/68) }} Tokens • รวม Vote {{ formatMoney(activeBonusTierMultiplier + totalAmount/68 + (totalAmount >= state.config.targetGoal ? 4000 : 0)) }} Tokens
           </span>
         </div>
       </div>
@@ -262,7 +269,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { 
   state, 
   totalAmount, 
@@ -278,9 +285,16 @@ import {
 import { Target, Hourglass, Users, Copy, Upload, MessageCircle, ExternalLink, X } from 'lucide-vue-next';
 
 defineEmits(['openSlipModal']);
-
 const copied = ref(false);
 const showQrModal = ref(false);
+
+const isShowNextTier = computed(() => {
+  let result = totalAmount.value <= state.config.targetGoal;
+  console.log('totalAmount=', totalAmount.value);
+  console.log('state.config.targetGoal=', state.config.targetGoal);
+  console.log('result=', result);
+  return result;
+});
 
 function formatMoney(val: number): string {
   return new Intl.NumberFormat('th-TH').format(val);
