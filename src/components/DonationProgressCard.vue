@@ -86,8 +86,8 @@
           <span v-if="activeBonusTierMultiplier >= 0" class="ml-2 inline-block px-2 py-0.5 bg-emerald-100 text-emerald-800 border border-emerald-600 rounded text-xs">
             กิจกรรม 1,705 Tokens •
             ปลดล็อค {{ formatMoney(activeBonusTierMultiplier) }} Tokens •
-            Donate {{ formatMoney(totalAmount/68)}} ทบ {{ formatMoney(Math.floor(totalAmount/68/250)*1000) }} Tokens •
-            รวม Vote {{ formatMoney(1705 + activeBonusTierMultiplier + totalAmount/68 + Math.floor(totalAmount/68/250)*1000) }} Tokens
+            Donate {{ formatMoney(totalAmount/68)}} ทบ {{ formatMoney(donateTokenPlus) }} Tokens •
+            รวม Vote {{ formatMoney(1705 + activeBonusTierMultiplier + totalAmount/68 + donateTokenPlus) }} Tokens
           </span>
         </div>
       </div>
@@ -302,6 +302,22 @@ import { Target, Hourglass, Users, Copy, Upload, MessageCircle, ExternalLink, X 
 defineEmits(['openSlipModal']);
 const copied = ref(false);
 const showQrModal = ref(false);
+
+const donateTokenPlus = computed(() => { 
+  let MAX_TOKEN = 4000;
+  let PLUS_TOKEN = 1000;
+  let PLUS_LEVEL = 250;
+  let TOKEN_PRICE = 68;
+
+  let result = Math.floor(totalAmount.value/TOKEN_PRICE/PLUS_LEVEL)*PLUS_TOKEN;
+
+  if (result > MAX_TOKEN) {
+    result = MAX_TOKEN;
+  }
+
+  return result;
+});
+
 
 function formatMoney(val: number): string {
   return new Intl.NumberFormat('th-TH').format(val);
