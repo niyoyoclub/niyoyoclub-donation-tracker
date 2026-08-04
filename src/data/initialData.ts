@@ -27,13 +27,13 @@ export const BONUS_TIER_TEXTS = [
 ];
 
 export const INITIAL_TIERS: TierGoal[] = [
-  { level: 0, name: 'Tier 0', targetAmount: 0, bonusMultiplier: 1705, description: 'เริ่มต้นการเดินทาง 1,705 Tokens', isReached: true },
-  { level: 1, name: 'Tier 1', targetAmount: 3000, bonusMultiplier: 2290, description: 'ปลดล็อกโบนัส 2,290 Tokens', isReached: true },
-  { level: 2, name: 'Tier 2', targetAmount: 6000, bonusMultiplier: 2880, description: 'ปลดล็อกโบนัส 2,880 Tokens', isReached: true },
-  { level: 3, name: 'Tier 3', targetAmount: 12000, bonusMultiplier: 4050, description: 'ปลดล็อกโบนัส 4,050 Tokens', isReached: true },
-  { level: 4, name: 'Tier 4', targetAmount: 24000, bonusMultiplier: 6395, description: 'ปลดล็อกโบนัส  6,395 Tokens', isReached: true},
-  { level: 5, name: 'Tier 5', targetAmount: 44000, bonusMultiplier: 10300, description: 'ปลดล็อกโบนัส 10,300 Tokens', isReached: true },
-  { level: 6, name: 'Tier 6', targetAmount: 68000, bonusMultiplier: 15000, description: 'SUPER BONUS TIER 15,000 Tokens', isReached: false },
+  { level: 0, name: 'Tier 0', targetAmount: 0, bonusMultiplier: 0, description: 'เริ่มต้นการเดินทาง 1,705 Tokens', isReached: true },
+  { level: 1, name: 'Tier 1', targetAmount: 3000, bonusMultiplier: 585, description: 'ปลดล็อกโบนัส 1,705 + 585 Tokens', isReached: true },
+  { level: 2, name: 'Tier 2', targetAmount: 6000, bonusMultiplier: 1175, description: 'ปลดล็อกโบนัส 1,705 + 1,175 Tokens', isReached: true },
+  { level: 3, name: 'Tier 3', targetAmount: 12000, bonusMultiplier: 2345, description: 'ปลดล็อกโบนัส 1,705 + 2,345 Tokens', isReached: true },
+  { level: 4, name: 'Tier 4', targetAmount: 24000, bonusMultiplier: 4690, description: 'ปลดล็อกโบนัส  1,705 + 4,690 Tokens', isReached: true},
+  { level: 5, name: 'Tier 5', targetAmount: 44000, bonusMultiplier: 8595, description: 'ปลดล็อกโบนัส 1,705 + 8,595 Tokens', isReached: true },
+  { level: 6, name: 'Tier 6', targetAmount: 68000, bonusMultiplier: 13295, description: 'SUPER BONUS TIER 1,705 + 13,295 Tokens', isReached: false },
 ];
 
 export function getActiveBonusTierText(currentAmount: number) {
