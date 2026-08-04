@@ -63,13 +63,13 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { state, currentTierLevel } from '../store/donationStore';
-import { BONUS_TIER_TEXTS } from '../data/initialData';
+//import { BONUS_TIER_TEXTS } from '../data/initialData';
 import { Sparkles } from 'lucide-vue-next';
 
 //console.log('BONUS_TIER_TEXTS=',BONUS_TIER_TEXTS);
 //console.log('currentTierLevel=',currentTierLevel.value);
-const activeBonusTierText = ref(BONUS_TIER_TEXTS[currentTierLevel.value]);
-const nextBonusTierText = ref(BONUS_TIER_TEXTS[currentTierLevel.value+1]);
+const activeBonusTierText = ref('');
+const nextBonusTierText = ref('');
 //console.log('activeBonusTierText=',activeBonusTierText.value);
 //console.log('nextBonusTierText=',nextBonusTierText.value);
 </script>

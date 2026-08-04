@@ -6,12 +6,12 @@
       <!-- Section Title -->
       <div class="text-center mb-4">
         <span class="inline-block text-xs sm:text-sm font-extrabold uppercase text-[#1e293b] tracking-widest bg-pink-100 border border-[#1e293b] px-3 py-1 rounded-full shadow-[2px_2px_0px_#1e293b]">
-          . SUPPORT NIYA ซื้อ 1,000 Tokens • ราคา ฿68 ต่อ 1 Token .
+          . SUPPORT NIYA ซื้อ {{ formatMoney(state.config.token.target) }} Tokens • ราคา ฿{{ state.config.token.price }} ต่อ 1 Token .
         </span>
       </div>
       <div class="text-center mb-4">
         <span class="inline-block text-xs sm:text-sm font-extrabold uppercase text-[#1e293b] tracking-widest bg-pink-300 border border-[#1e293b] px-3 py-1 rounded-full shadow-[2px_2px_0px_#1e293b]">
-          . ซื้อครบทุกๆ 250 Tokens • ผู้สนับสนุนทบให้อีก 1,000 Tokens • ทบสูงสุด 4,000 Tokens .
+          . ซื้อครบทุกๆ {{ formatMoney(state.config.token.rechargeTokenLevel) }} Tokens • ผู้สนับสนุนทบให้อีก {{ formatMoney(state.config.token.rechargeToken) }} Tokens • ทบสูงสุด {{ formatMoney(state.config.token.maxRechargeToken) }} Tokens .
         </span>
       </div>
 
@@ -74,20 +74,20 @@
           <span class="ml-2 inline-block px-2 py-0.5 bg-emerald-300 text-emerald-800 border border-emerald-600 rounded text-xs" style="text-align: left;">
             • กิจกรรมบ้านใหม่น้องนีญ่า จำนวนสมาชิก 191 ท่าน ทบท่านละ 5 Tokens สิ้นสุด 30 Jun 26 23:59 ได้ 191 x 5 = 955 Tokens<br/>
             • กิจกรรมส่งลิ้งค์แฟนแคมน้องนีญ่า จำนวนลิ้งค์ 75 ลิ้งค์ ทบลิ้งค์ละ 10 Tokens สิ้นสุด 31 Jul 26 20:00 ได้ 75 x 10 = 750 Tokens<br/>
-            • รวม 2 กิจกรรม ผู้สนับสนุนทบให้ 1,705 Tokens
+            • รวม 2 กิจกรรม ผู้สนับสนุนทบให้ {{ formatMoney(state.config.token.start) }} Tokens
           </span>
         </div>
         <div class="text-sm sm:text-base font-bold text-[#457b9d] font-mono mt-1">
           <span class="ml-2 inline-block px-2 py-0.5 bg-emerald-200 text-emerald-800 border border-emerald-600 rounded text-xs">
-            จำนวน Token เริ่มต้นจากการทบ ของผู้สนับสนุน 1,705 Tokens
+            จำนวน Token เริ่มต้นจากการทบ ของผู้สนับสนุน {{ formatMoney(state.config.token.start) }} Tokens
           </span>
         </div>
         <div class="text-sm sm:text-base font-bold text-[#457b9d] font-mono mt-1">
           <span v-if="activeBonusTierMultiplier >= 0" class="ml-2 inline-block px-2 py-0.5 bg-emerald-100 text-emerald-800 border border-emerald-600 rounded text-xs">
-            กิจกรรม 1,705 Tokens •
+            กิจกรรม {{ formatMoney(state.config.token.start) }} Tokens •
             ปลดล็อค {{ formatMoney(activeBonusTierMultiplier) }} Tokens •
-            Donate {{ formatMoney(totalAmount/68)}} ทบ {{ formatMoney(donateTokenPlus) }} Tokens •
-            รวม Vote {{ formatMoney(1705 + activeBonusTierMultiplier + totalAmount/68 + donateTokenPlus) }} Tokens
+            Donate {{ formatMoney(getBuyToken(totalAmount, state.config.token.price))}} ทบ {{ formatMoney(donateTokenPlus) }} Tokens •
+            รวม Vote {{ formatMoney(state.config.token.start + activeBonusTierMultiplier + getBuyToken(totalAmount, state.config.token.price) + donateTokenPlus) }} Tokens
           </span>
         </div>
       </div>
@@ -304,10 +304,10 @@ const copied = ref(false);
 const showQrModal = ref(false);
 
 const donateTokenPlus = computed(() => { 
-  let MAX_TOKEN = 4000;
-  let PLUS_TOKEN = 1000;
-  let PLUS_LEVEL = 250;
-  let TOKEN_PRICE = 68;
+  let MAX_TOKEN = state.config.token.maxRechargeToken;
+  let PLUS_TOKEN = state.config.token.rechargeToken;
+  let PLUS_LEVEL = state.config.token.rechargeTokenLevel;
+  let TOKEN_PRICE = state.config.token.price;
 
   let result = Math.floor(totalAmount.value/TOKEN_PRICE/PLUS_LEVEL)*PLUS_TOKEN;
 
@@ -321,6 +321,10 @@ const donateTokenPlus = computed(() => {
 
 function formatMoney(val: number): string {
   return new Intl.NumberFormat('th-TH').format(val);
+}
+
+function getBuyToken(val: number, price: number): number {
+  return Math.floor(val/price);
 }
 
 function copyAccount() {
