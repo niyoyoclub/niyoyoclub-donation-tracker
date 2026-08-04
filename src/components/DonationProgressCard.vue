@@ -79,7 +79,7 @@
         </div>
         <div class="text-sm sm:text-base font-bold text-[#457b9d] font-mono mt-1">
           <span class="ml-2 inline-block px-2 py-0.5 bg-emerald-200 text-emerald-800 border border-emerald-600 rounded text-xs">
-            จำนวน Token เริ่มต้นจากการสนับสนุน 1,705 Tokens
+            จำนวน Token เริ่มต้นจากการทบ ของผู้สนับสนุน 1,705 Tokens
           </span>
         </div>
         <div class="text-sm sm:text-base font-bold text-[#457b9d] font-mono mt-1">
