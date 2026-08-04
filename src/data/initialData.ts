@@ -23,16 +23,16 @@ export const INITIAL_CONFIG: ProjectConfig = {
   }
 };
 
-export const BONUS_TIER_TEXTS = [
-  'NOT YET BONUS TIER (+' + INITIAL_CONFIG.token.start +' Tokens)',
-  'BONUS TIER 1 (+2,290 Tokens)',
-  'BONUS TIER 2 (+2,880 Tokens)',
-  'BONUS TIER 3 (+4,050 Tokens)',
-  'BONUS TIER 4 (+6,395 Tokens)',
-  'BONUS TIER 5 (+10,300 Tokens)',
-  'SUPER BONUS TIER (+15,000 Tokens)',
-  'COMPLETED +15,000 Tokens'
-];
+// export const BONUS_TIER_TEXTS = [
+//   'NOT YET BONUS TIER (+' + INITIAL_CONFIG.token.start +' Tokens)',
+//   'BONUS TIER 1 (+2,290 Tokens)',
+//   'BONUS TIER 2 (+2,880 Tokens)',
+//   'BONUS TIER 3 (+4,050 Tokens)',
+//   'BONUS TIER 4 (+6,395 Tokens)',
+//   'BONUS TIER 5 (+10,300 Tokens)',
+//   'SUPER BONUS TIER (+15,000 Tokens)',
+//   'COMPLETED +15,000 Tokens'
+// ];
 
 export const INITIAL_TIERS: TierGoal[] = [
   { level: 0, name: 'Tier 0', targetAmount: 0, bonusMultiplier: 0, description: 'เริ่มต้นการเดินทาง ' + formatMoney(INITIAL_CONFIG.token.start) + ' Tokens', isReached: true },
@@ -66,9 +66,9 @@ function formatMoney(val: number): string {
 }
 
 // Sample realistic supporters list to equal 260 supporters & ~156,752 THB total
-// export const INITIAL_TRANSACTIONS: DonationTransaction[] = [
-// ];
-
+export const INITIAL_TRANSACTIONS: DonationTransaction[] = [
+];
+/*
 export const INITIAL_TRANSACTIONS: DonationTransaction[] = [
   {
     id: 'TX-10260',
@@ -254,3 +254,4 @@ export const INITIAL_TRANSACTIONS: DonationTransaction[] = [
     status: 'verified'
   }
 ];
+*/
