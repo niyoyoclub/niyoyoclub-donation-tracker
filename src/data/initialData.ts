@@ -13,27 +13,35 @@ export const INITIAL_CONFIG: ProjectConfig = {
   communityLink: 'https://line.me/ti/g2/hfQvhsWKm0DCpXR7YZyQ9C4Gd7gk01DBm2Qitg',
   activeBonusTierText: '[NOW]',
   nextBonusTierText: '[NEXT]',
+  token: {
+    start: 1705,
+    price: 68,
+    target: 1000, // จำนวน token เป้าหมายที่ต้องการซื้อ
+    rechargeTokenLevel: 250, // level ที่จะทบ ทุกๆ 250 token
+    rechargeToken: 1000, // ทบให้ 1000 ทุกๆ level
+    maxRechargeToken: 4000, // จำนวน token สูงสุดที่ทบให้
+  }
 };
 
-export const BONUS_TIER_TEXTS = [
-  'NOT YET BONUS TIER (+1,705 Tokens)',
-  'BONUS TIER 1 (+2,290 Tokens)',
-  'BONUS TIER 2 (+2,880 Tokens)',
-  'BONUS TIER 3 (+4,050 Tokens)',
-  'BONUS TIER 4 (+6,395 Tokens)',
-  'BONUS TIER 5 (+10,300 Tokens)',
-  'SUPER BONUS TIER (+15,000 Tokens)',
-  'COMPLETED +15,000 Tokens'
-];
+// export const BONUS_TIER_TEXTS = [
+//   'NOT YET BONUS TIER (+' + INITIAL_CONFIG.token.start +' Tokens)',
+//   'BONUS TIER 1 (+2,290 Tokens)',
+//   'BONUS TIER 2 (+2,880 Tokens)',
+//   'BONUS TIER 3 (+4,050 Tokens)',
+//   'BONUS TIER 4 (+6,395 Tokens)',
+//   'BONUS TIER 5 (+10,300 Tokens)',
+//   'SUPER BONUS TIER (+15,000 Tokens)',
+//   'COMPLETED +15,000 Tokens'
+// ];
 
 export const INITIAL_TIERS: TierGoal[] = [
-  { level: 0, name: 'Tier 0', targetAmount: 0, bonusMultiplier: 0, description: 'เริ่มต้นการเดินทาง 1,705 Tokens', isReached: true },
-  { level: 1, name: 'Tier 1', targetAmount: 3000, bonusMultiplier: 585, description: 'ปลดล็อกโบนัส 1,705 + 585 Tokens', isReached: true },
-  { level: 2, name: 'Tier 2', targetAmount: 6000, bonusMultiplier: 1175, description: 'ปลดล็อกโบนัส 1,705 + 1,175 Tokens', isReached: true },
-  { level: 3, name: 'Tier 3', targetAmount: 12000, bonusMultiplier: 2345, description: 'ปลดล็อกโบนัส 1,705 + 2,345 Tokens', isReached: true },
-  { level: 4, name: 'Tier 4', targetAmount: 24000, bonusMultiplier: 4690, description: 'ปลดล็อกโบนัส  1,705 + 4,690 Tokens', isReached: true},
-  { level: 5, name: 'Tier 5', targetAmount: 44000, bonusMultiplier: 8595, description: 'ปลดล็อกโบนัส 1,705 + 8,595 Tokens', isReached: true },
-  { level: 6, name: 'Tier 6', targetAmount: 68000, bonusMultiplier: 13295, description: 'SUPER BONUS TIER 1,705 + 13,295 Tokens', isReached: false },
+  { level: 0, name: 'Tier 0', targetAmount: 0, bonusMultiplier: 0, description: 'เริ่มต้นการเดินทาง ' + formatMoney(INITIAL_CONFIG.token.start) + ' Tokens', isReached: true },
+  { level: 1, name: 'Tier 1', targetAmount: 3000, bonusMultiplier: 585, description: 'ปลดล็อกโบนัส ' + formatMoney(INITIAL_CONFIG.token.start) + ' + 585 Tokens', isReached: true },
+  { level: 2, name: 'Tier 2', targetAmount: 6000, bonusMultiplier: 1175, description: 'ปลดล็อกโบนัส ' + formatMoney(INITIAL_CONFIG.token.start) + ' + 1,175 Tokens', isReached: true },
+  { level: 3, name: 'Tier 3', targetAmount: 12000, bonusMultiplier: 2345, description: 'ปลดล็อกโบนัส ' + formatMoney(INITIAL_CONFIG.token.start) + ' + 2,345 Tokens', isReached: true },
+  { level: 4, name: 'Tier 4', targetAmount: 24000, bonusMultiplier: 4690, description: 'ปลดล็อกโบนัส  ' + formatMoney(INITIAL_CONFIG.token.start) + ' + 4,690 Tokens', isReached: true},
+  { level: 5, name: 'Tier 5', targetAmount: 44000, bonusMultiplier: 8595, description: 'ปลดล็อกโบนัส ' + formatMoney(INITIAL_CONFIG.token.start) + ' + 8,595 Tokens', isReached: true },
+  { level: 6, name: 'Tier 6', targetAmount: 68000, bonusMultiplier: 13295, description: 'SUPER BONUS TIER ' + formatMoney(INITIAL_CONFIG.token.start) + ' + 13,295 Tokens', isReached: false },
 ];
 
 export function getActiveBonusTierText(currentAmount: number) {
@@ -51,6 +59,10 @@ export function getActiveBonusTierText(currentAmount: number) {
 
 export function getNextBonusTierText(currentAmount: number) {
   return getActiveBonusTierText(currentAmount) + 1;
+}
+
+function formatMoney(val: number): string {
+  return new Intl.NumberFormat('th-TH').format(val);
 }
 
 // Sample realistic supporters list to equal 260 supporters & ~156,752 THB total
