@@ -21,7 +21,7 @@ export const INITIAL_CONFIG: ProjectConfig = {
     rechargeTokenLevel: 250, // level ที่จะทบ ทุกๆ 250 token
     rechargeToken: 1000, // ทบให้ 1000 ทุกๆ level
     maxRechargeToken: 4000, // จำนวน token สูงสุดที่ทบให้
-    bonusTokens: [525, 1115, 2280, 4625, 8530, 13230],
+    bonusTokens: [525, 1115, 2280, 4625, 8215, 12915],
   },
 };
 
