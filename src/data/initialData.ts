@@ -7,7 +7,7 @@ export const INITIAL_CONFIG: ProjectConfig = {
   sheetUrl:
     "https://docs.google.com/spreadsheets/d/e/2PACX-1vQjjo3Gd1VwUWxVHYEy01Rar9ueGqpxeiQtpRR-Q9U1IxD5ew15gf0YQ0KPtyGAbj8XAKO8JXLm_RjF/pub?gid=0&single=true&output=csv",
   autoRefreshInterval: 60,
-  targetGoal: 68000,
+  targetGoal: 136000,
   bankName: "KBANK",
   accountNumber: "236-1-62262-9",
   accountName: "นาย วัฒนชัย ยิ้มงาม",
@@ -17,12 +17,12 @@ export const INITIAL_CONFIG: ProjectConfig = {
   token: {
     start: 2085,
     price: 68,
-    target: 1000, // จำนวน token เป้าหมายที่ต้องการซื้อ
-    rechargeTokenLevel: 250, // level ที่จะทบ ทุกๆ 250 token
-    rechargeToken: 1000, // ทบให้ 1000 ทุกๆ level
-    maxRechargeToken: 4000, // จำนวน token สูงสุดที่ทบให้
-    bonusTokens: [600, 1200, 2400, 4800, 8800, 12915],
-    targetAmounts: [3000, 6000, 12000, 24000, 44000, 68000]
+    target: 2000, // จำนวน token เป้าหมายที่ต้องการซื้อ
+    rechargeTokenLevel: 5, // level ที่จะทบ ทุกๆ 250 token
+    rechargeToken: 10, // ทบให้ 1000 ทุกๆ level
+    maxRechargeToken: 6000, // จำนวน token สูงสุดที่ทบให้
+    bonusTokens: [600, 1200, 2400, 4800, 6800, 13600],
+    targetAmounts: [6000, 12000, 24000, 48000, 68000, 136000]
   },
 };
 
@@ -351,7 +351,7 @@ export const INITIAL_TRANSACTIONS: DonationTransaction[] = [
     id: 'TX-10247',
     timestamp: '2026-08-03 18:00:00',
     supporterName: 'Supporter_260',
-    amount: 0,
+    amount: 68000,
     paymentChannel: 'SCB PromptPay',
     slipRef: '20260801221100',
     note: 'ปิดยอดให้ทะลุเป้าหมาย Tier 6!!',
