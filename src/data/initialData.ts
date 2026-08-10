@@ -21,7 +21,8 @@ export const INITIAL_CONFIG: ProjectConfig = {
     rechargeTokenLevel: 250, // level ที่จะทบ ทุกๆ 250 token
     rechargeToken: 1000, // ทบให้ 1000 ทุกๆ level
     maxRechargeToken: 4000, // จำนวน token สูงสุดที่ทบให้
-    bonusTokens: [525, 1115, 2280, 4625, 8215, 12915],
+    bonusTokens: [500, 1000, 2000, 4000, 8000, (15000-2085)],
+    targetAmounts: [3000, 6000, 12000, 24000, 44000, 68000]
   },
 };
 
@@ -51,7 +52,7 @@ export const INITIAL_TIERS: TierGoal[] = [
   {
     level: 1,
     name: "Tier 1",
-    targetAmount: 3000,
+    targetAmount: INITIAL_CONFIG.token.targetAmounts[0],
     bonusMultiplier: INITIAL_CONFIG.token.bonusTokens[0],
     description:
       "ปลดล็อกโบนัส " +
@@ -64,7 +65,7 @@ export const INITIAL_TIERS: TierGoal[] = [
   {
     level: 2,
     name: "Tier 2",
-    targetAmount: 6000,
+    targetAmount: INITIAL_CONFIG.token.targetAmounts[1],
     bonusMultiplier: INITIAL_CONFIG.token.bonusTokens[1],
     description:
       "ปลดล็อกโบนัส " +
@@ -77,7 +78,7 @@ export const INITIAL_TIERS: TierGoal[] = [
   {
     level: 3,
     name: "Tier 3",
-    targetAmount: 12000,
+    targetAmount: INITIAL_CONFIG.token.targetAmounts[2],
     bonusMultiplier: INITIAL_CONFIG.token.bonusTokens[2],
     description:
       "ปลดล็อกโบนัส " +
@@ -90,7 +91,7 @@ export const INITIAL_TIERS: TierGoal[] = [
   {
     level: 4,
     name: "Tier 4",
-    targetAmount: 24000,
+    targetAmount: INITIAL_CONFIG.token.targetAmounts[3],
     bonusMultiplier: INITIAL_CONFIG.token.bonusTokens[3],
     description:
       "ปลดล็อกโบนัส  " +
@@ -103,7 +104,7 @@ export const INITIAL_TIERS: TierGoal[] = [
   {
     level: 5,
     name: "Tier 5",
-    targetAmount: 44000,
+    targetAmount: INITIAL_CONFIG.token.targetAmounts[4],
     bonusMultiplier: INITIAL_CONFIG.token.bonusTokens[4],
     description:
       "ปลดล็อกโบนัส " +
@@ -116,7 +117,7 @@ export const INITIAL_TIERS: TierGoal[] = [
   {
     level: 6,
     name: "Tier 6",
-    targetAmount: 68000,
+    targetAmount: INITIAL_CONFIG.token.targetAmounts[5],
     bonusMultiplier: INITIAL_CONFIG.token.bonusTokens[5],
     description:
       "SUPER BONUS TIER " +
