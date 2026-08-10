@@ -72,9 +72,10 @@
         </div>
         <div class="text-sm sm:text-base font-bold text-[#457b9d] font-mono mt-1">
           <span class="ml-2 inline-block px-2 py-0.5 bg-emerald-300 text-emerald-800 border border-emerald-600 rounded text-xs" style="text-align: left;">
-            • กิจกรรมบ้านใหม่น้องนีญ่า จำนวนสมาชิก 191 ท่าน ทบท่านละ 5 Tokens สิ้นสุด 30 Jun 26 23:59 ได้ 191 x 5 = 955 Tokens<br/>
-            • กิจกรรมส่งลิ้งค์แฟนแคมน้องนีญ่า จำนวนลิ้งค์ 75 ลิ้งค์ ทบลิ้งค์ละ 10 Tokens สิ้นสุด 31 Jul 26 20:00 ได้ 75 x 10 = 750 Tokens<br/>
-            • รวม 2 กิจกรรม ผู้สนับสนุนทบให้ {{ formatMoney(state.config.token.start) }} Tokens
+            1. กิจกรรมบ้านใหม่น้องนีญ่า จำนวนสมาชิก 191 ท่าน ทบท่านละ 5 Tokens สิ้นสุด 30 Jun 26 23:59 ได้ 191 x 5 = 955 Tokens<br/>
+            2. กิจกรรมส่งลิ้งค์แฟนแคมน้องนีญ่า จำนวนลิ้งค์ 75 ลิ้งค์ ทบลิ้งค์ละ 10 Tokens สิ้นสุด 31 Jul 26 20:00 ได้ 75 x 10 = 750 Tokens<br/>
+            3. กิจกรรมดันคลิป Tiktok น้องนีญ่า จำนวนลิ้งค์ 19 รายการ ทบรายการละ 10 Tokens สิ้นสุด 10 Aug 26 18:00 ได้ 19 x 10 = 190 Tokens ผู้สนับสนุนทบให้อีก 190 Tokens = 380 Tokens<br/>
+            • รวม 3 กิจกรรม ผู้สนับสนุนทบให้ {{ formatMoney(state.config.token.start) }} Tokens
           </span>
         </div>
         <div class="text-sm sm:text-base font-bold text-[#457b9d] font-mono mt-1">
