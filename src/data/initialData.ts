@@ -6,7 +6,7 @@ export const INITIAL_CONFIG: ProjectConfig = {
   motto: "ONE DREAM • FIRST STEP TO SENBATSU",
   sheetUrl:
     "https://docs.google.com/spreadsheets/d/e/2PACX-1vQjjo3Gd1VwUWxVHYEy01Rar9ueGqpxeiQtpRR-Q9U1IxD5ew15gf0YQ0KPtyGAbj8XAKO8JXLm_RjF/pub?gid=0&single=true&output=csv",
-  autoRefreshInterval: 30,
+  autoRefreshInterval: 60,
   targetGoal: 68000,
   bankName: "KBANK",
   accountNumber: "236-1-62262-9",
@@ -21,7 +21,7 @@ export const INITIAL_CONFIG: ProjectConfig = {
     rechargeTokenLevel: 250, // level ที่จะทบ ทุกๆ 250 token
     rechargeToken: 1000, // ทบให้ 1000 ทุกๆ level
     maxRechargeToken: 4000, // จำนวน token สูงสุดที่ทบให้
-    bonusTokens: [500, 1000, 2000, 4000, 8000, (15000-2085)],
+    bonusTokens: [600, 1200, 2400, 4800, 8800, 12915],
     targetAmounts: [3000, 6000, 12000, 24000, 44000, 68000]
   },
 };
@@ -156,8 +156,8 @@ export const INITIAL_TRANSACTIONS: DonationTransaction[] = [
   {
     id: 'TX-10260',
     timestamp: '2026-08-01 23:49:12',
-    supporterName: 'MONET_OFC_CLUB',
-    amount: 15000,
+    supporterName: 'NIYA_OFC_CLUB',
+    amount: 68,
     paymentChannel: 'SCB PromptPay',
     slipRef: '20260801991204',
     note: 'ส่งนีโยโย่วไปถล่มโพล! สู้ๆ นะนีญ่า ♥',
@@ -167,8 +167,8 @@ export const INITIAL_TRANSACTIONS: DonationTransaction[] = [
   {
     id: 'TX-10259',
     timestamp: '2026-08-01 23:45:00',
-    supporterName: 'P\'Tee_Monet',
-    amount: 10000,
+    supporterName: 'P\'Tee_NIYA',
+    amount: 680,
     paymentChannel: 'SCB PromptPay',
     slipRef: '20260801882311',
     note: 'One Last Time ต้องที่ 1 เท่านั้น!',
@@ -178,19 +178,19 @@ export const INITIAL_TRANSACTIONS: DonationTransaction[] = [
   {
     id: 'TX-10258',
     timestamp: '2026-08-01 23:30:15',
-    supporterName: 'โอชิโมเน่ต์ตลอดไป',
+    supporterName: 'โอชินีญ่าตลอดไป',
     amount: 5000,
     paymentChannel: 'SCB PromptPay',
     slipRef: '20260801773344',
-    note: 'เพื่อความฝันของโมเน่ต์ครับ',
+    note: 'เพื่อความฝันของนีญ่าครับ',
     status: 'verified',
     tierUnlocked: 5
   },
   {
     id: 'TX-10257',
     timestamp: '2026-08-01 23:12:00',
-    supporterName: 'Monet_Lover_01',
-    amount: 3333,
+    supporterName: 'NIYA_Lover_01',
+    amount: 300,
     paymentChannel: 'KBank PromptPay',
     slipRef: '20260801665522',
     note: '3333 เลขมงคล One Last Time',
@@ -200,7 +200,7 @@ export const INITIAL_TRANSACTIONS: DonationTransaction[] = [
     id: 'TX-10256',
     timestamp: '2026-08-01 22:50:40',
     supporterName: 'นายไข่ต้ม สายเปย์',
-    amount: 8888,
+    amount: 800,
     paymentChannel: 'SCB PromptPay',
     slipRef: '20260801554433',
     note: 'รวยรวยรวย เพื่อโพลครั้งสุดท้าย',
@@ -223,14 +223,14 @@ export const INITIAL_TRANSACTIONS: DonationTransaction[] = [
     amount: 1200,
     paymentChannel: 'TrueMoney',
     slipRef: '20260801332211',
-    note: 'สมทบทุนค่านมโมเน่ต์',
+    note: 'สมทบทุนค่านมนีญ่า',
     status: 'verified'
   },
   {
     id: 'TX-10253',
     timestamp: '2026-08-01 22:00:00',
     supporterName: 'กัปตันม้าเกรซ',
-    amount: 12000,
+    amount: 1200,
     paymentChannel: 'SCB PromptPay',
     slipRef: '20260801221100',
     note: 'ม้าเกรซพร้อมออกศึก!',
@@ -243,7 +243,7 @@ export const INITIAL_TRANSACTIONS: DonationTransaction[] = [
     amount: 7500,
     paymentChannel: 'KBank PromptPay',
     slipRef: '20260801110099',
-    note: 'ส่งพลังให้โมเน่ต์',
+    note: 'ส่งพลังให้นีญ่า',
     status: 'verified'
   },
   {
@@ -259,11 +259,11 @@ export const INITIAL_TRANSACTIONS: DonationTransaction[] = [
   {
     id: 'TX-10250',
     timestamp: '2026-08-01 21:00:00',
-    supporterName: 'Monet_Smile_FC',
+    supporterName: 'NIYA_Smile_FC',
     amount: 5500,
     paymentChannel: 'SCB PromptPay',
     slipRef: '20260801998877',
-    note: 'เพื่อรอยยิ้มของโมเน่ต์',
+    note: 'เพื่อรอยยิ้มของนีญ่า',
     status: 'verified'
   },
   {
@@ -280,7 +280,7 @@ export const INITIAL_TRANSACTIONS: DonationTransaction[] = [
     id: 'TX-10248',
     timestamp: '2026-08-01 20:10:05',
     supporterName: 'พี่ชายสายดัน',
-    amount: 20000,
+    amount: 2000,
     paymentChannel: 'SCB PromptPay',
     slipRef: '20260801776655',
     note: 'จัดไปอีก 20K! สู้ไม่ถอย',
@@ -289,11 +289,11 @@ export const INITIAL_TRANSACTIONS: DonationTransaction[] = [
   {
     id: 'TX-10247',
     timestamp: '2026-08-01 19:50:00',
-    supporterName: 'Monet_Galaxy',
-    amount: 9999,
+    supporterName: 'NIYA_Galaxy',
+    amount: 10000,
     paymentChannel: 'SCB PromptPay',
     slipRef: '20260801665544',
-    note: 'สู่จักรวาลโมเน่ต์',
+    note: 'สู่จักรวาลนีญ่า',
     status: 'verified'
   },
   {
@@ -320,20 +320,41 @@ export const INITIAL_TRANSACTIONS: DonationTransaction[] = [
     id: 'TX-10244',
     timestamp: '2026-08-01 18:30:00',
     supporterName: 'ป๋าเหน่ง',
-    amount: 25000,
+    amount: 2500,
     paymentChannel: 'SCB PromptPay',
     slipRef: '20260801332211',
-    note: 'โบนัสออกจัดใหญ่ให่โมเน่ต์',
+    note: 'โบนัสออกจัดใหญ่ให่นีญ่า',
     status: 'verified'
   },
   {
     id: 'TX-10243',
     timestamp: '2026-08-01 18:00:00',
     supporterName: 'Supporter_260',
-    amount: 9033,
+    amount: 9000,
     paymentChannel: 'SCB PromptPay',
     slipRef: '20260801221100',
     note: 'ปิดยอดให้ทะลุเป้าหมาย Tier 5!!',
+    status: 'verified'
+  },
+  {
+    id: 'TX-10245',
+    timestamp: '2026-08-02 18:00:00',
+    supporterName: 'Supporter_260',
+    amount: 5252,
+    paymentChannel: 'SCB PromptPay',
+    slipRef: '20260801221100',
+    note: 'ปิดยอดให้ทะลุเป้าหมาย Tier 6!!',
+    status: 'verified'
+  }
+  ,
+  {
+    id: 'TX-10247',
+    timestamp: '2026-08-03 18:00:00',
+    supporterName: 'Supporter_260',
+    amount: 0,
+    paymentChannel: 'SCB PromptPay',
+    slipRef: '20260801221100',
+    note: 'ปิดยอดให้ทะลุเป้าหมาย Tier 6!!',
     status: 'verified'
   }
 ];
