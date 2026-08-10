@@ -1,26 +1,28 @@
-import { DonationTransaction, TierGoal, ProjectConfig } from '../types';
+import { DonationTransaction, TierGoal, ProjectConfig } from "../types";
 
 export const INITIAL_CONFIG: ProjectConfig = {
-  projectName: 'GENERAL ELECTION 2026 PROJECT FOR NIYA',
-  hashtag: '#NiyaFirstStepToSenbatsu',
-  motto: 'ONE DREAM • FIRST STEP TO SENBATSU',
-  sheetUrl: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQjjo3Gd1VwUWxVHYEy01Rar9ueGqpxeiQtpRR-Q9U1IxD5ew15gf0YQ0KPtyGAbj8XAKO8JXLm_RjF/pub?gid=0&single=true&output=csv',
+  projectName: "GENERAL ELECTION 2026 PROJECT FOR NIYA",
+  hashtag: "#NiyaFirstStepToSenbatsu",
+  motto: "ONE DREAM • FIRST STEP TO SENBATSU",
+  sheetUrl:
+    "https://docs.google.com/spreadsheets/d/e/2PACX-1vQjjo3Gd1VwUWxVHYEy01Rar9ueGqpxeiQtpRR-Q9U1IxD5ew15gf0YQ0KPtyGAbj8XAKO8JXLm_RjF/pub?gid=0&single=true&output=csv",
   autoRefreshInterval: 30,
   targetGoal: 68000,
-  bankName: 'KBANK',
-  accountNumber: '236-1-62262-9',
-  accountName: 'นาย วัฒนชัย ยิ้มงาม',
-  communityLink: 'https://line.me/ti/g2/hfQvhsWKm0DCpXR7YZyQ9C4Gd7gk01DBm2Qitg',
-  activeBonusTierText: '[NOW]',
-  nextBonusTierText: '[NEXT]',
+  bankName: "KBANK",
+  accountNumber: "236-1-62262-9",
+  accountName: "นาย วัฒนชัย ยิ้มงาม",
+  communityLink: "https://line.me/ti/g2/hfQvhsWKm0DCpXR7YZyQ9C4Gd7gk01DBm2Qitg",
+  activeBonusTierText: "[NOW]",
+  nextBonusTierText: "[NEXT]",
   token: {
-    start: 1705,
+    start: 2085,
     price: 68,
     target: 1000, // จำนวน token เป้าหมายที่ต้องการซื้อ
     rechargeTokenLevel: 250, // level ที่จะทบ ทุกๆ 250 token
     rechargeToken: 1000, // ทบให้ 1000 ทุกๆ level
     maxRechargeToken: 4000, // จำนวน token สูงสุดที่ทบให้
-  }
+    bonusTokens: [525, 1115, 2280, 4625, 8530, 13230],
+  },
 };
 
 // export const BONUS_TIER_TEXTS = [
@@ -35,22 +37,103 @@ export const INITIAL_CONFIG: ProjectConfig = {
 // ];
 
 export const INITIAL_TIERS: TierGoal[] = [
-  { level: 0, name: 'Tier 0', targetAmount: 0, bonusMultiplier: 0, description: 'เริ่มต้นการเดินทาง ' + formatMoney(INITIAL_CONFIG.token.start) + ' Tokens', isReached: true },
-  { level: 1, name: 'Tier 1', targetAmount: 3000, bonusMultiplier: 585, description: 'ปลดล็อกโบนัส ' + formatMoney(INITIAL_CONFIG.token.start) + ' + 585 Tokens', isReached: true },
-  { level: 2, name: 'Tier 2', targetAmount: 6000, bonusMultiplier: 1175, description: 'ปลดล็อกโบนัส ' + formatMoney(INITIAL_CONFIG.token.start) + ' + 1,175 Tokens', isReached: true },
-  { level: 3, name: 'Tier 3', targetAmount: 12000, bonusMultiplier: 2345, description: 'ปลดล็อกโบนัส ' + formatMoney(INITIAL_CONFIG.token.start) + ' + 2,345 Tokens', isReached: true },
-  { level: 4, name: 'Tier 4', targetAmount: 24000, bonusMultiplier: 4690, description: 'ปลดล็อกโบนัส  ' + formatMoney(INITIAL_CONFIG.token.start) + ' + 4,690 Tokens', isReached: true},
-  { level: 5, name: 'Tier 5', targetAmount: 44000, bonusMultiplier: 8595, description: 'ปลดล็อกโบนัส ' + formatMoney(INITIAL_CONFIG.token.start) + ' + 8,595 Tokens', isReached: true },
-  { level: 6, name: 'Tier 6', targetAmount: 68000, bonusMultiplier: 13295, description: 'SUPER BONUS TIER ' + formatMoney(INITIAL_CONFIG.token.start) + ' + 13,295 Tokens', isReached: false },
+  {
+    level: 0,
+    name: "Tier 0",
+    targetAmount: 0,
+    bonusMultiplier: 0,
+    description:
+      "เริ่มต้นการเดินทาง " +
+      formatMoney(INITIAL_CONFIG.token.start) +
+      " Tokens",
+    isReached: true,
+  },
+  {
+    level: 1,
+    name: "Tier 1",
+    targetAmount: 3000,
+    bonusMultiplier: INITIAL_CONFIG.token.bonusTokens[0],
+    description:
+      "ปลดล็อกโบนัส " +
+      formatMoney(INITIAL_CONFIG.token.start) +
+      " + " +
+      formatMoney(INITIAL_CONFIG.token.bonusTokens[0]) +
+      " Tokens",
+    isReached: true,
+  },
+  {
+    level: 2,
+    name: "Tier 2",
+    targetAmount: 6000,
+    bonusMultiplier: INITIAL_CONFIG.token.bonusTokens[1],
+    description:
+      "ปลดล็อกโบนัส " +
+      formatMoney(INITIAL_CONFIG.token.start) +
+      " + " +
+      formatMoney(INITIAL_CONFIG.token.bonusTokens[1]) +
+      " Tokens",
+    isReached: true,
+  },
+  {
+    level: 3,
+    name: "Tier 3",
+    targetAmount: 12000,
+    bonusMultiplier: INITIAL_CONFIG.token.bonusTokens[2],
+    description:
+      "ปลดล็อกโบนัส " +
+      formatMoney(INITIAL_CONFIG.token.start) +
+      " + " +
+      formatMoney(INITIAL_CONFIG.token.bonusTokens[2]) +
+      " Tokens",
+    isReached: true,
+  },
+  {
+    level: 4,
+    name: "Tier 4",
+    targetAmount: 24000,
+    bonusMultiplier: INITIAL_CONFIG.token.bonusTokens[3],
+    description:
+      "ปลดล็อกโบนัส  " +
+      formatMoney(INITIAL_CONFIG.token.start) +
+      " + " +
+      formatMoney(INITIAL_CONFIG.token.bonusTokens[3]) +
+      " Tokens",
+    isReached: true,
+  },
+  {
+    level: 5,
+    name: "Tier 5",
+    targetAmount: 44000,
+    bonusMultiplier: INITIAL_CONFIG.token.bonusTokens[4],
+    description:
+      "ปลดล็อกโบนัส " +
+      formatMoney(INITIAL_CONFIG.token.start) +
+      " + " +
+      formatMoney(INITIAL_CONFIG.token.bonusTokens[4]) +
+      " Tokens",
+    isReached: true,
+  },
+  {
+    level: 6,
+    name: "Tier 6",
+    targetAmount: 68000,
+    bonusMultiplier: INITIAL_CONFIG.token.bonusTokens[5],
+    description:
+      "SUPER BONUS TIER " +
+      formatMoney(INITIAL_CONFIG.token.start) +
+      " + " +
+      formatMoney(INITIAL_CONFIG.token.bonusTokens[5]) +
+      " Tokens",
+    isReached: false,
+  },
 ];
 
 export function getActiveBonusTierText(currentAmount: number) {
-  let tier = INITIAL_TIERS.map(t => (t) => {
-    if (currentAmount < t.targetAmount){
-      return t.level-1;
-    }
-    else {
-      return INITIAL_TIERS.length-1;
+  let tier = INITIAL_TIERS.map((t) => (t) => {
+    if (currentAmount < t.targetAmount) {
+      return t.level - 1;
+    } else {
+      return INITIAL_TIERS.length - 1;
     }
   });
 
@@ -62,12 +145,11 @@ export function getNextBonusTierText(currentAmount: number) {
 }
 
 function formatMoney(val: number): string {
-  return new Intl.NumberFormat('th-TH').format(val);
+  return new Intl.NumberFormat("th-TH").format(val);
 }
 
 // Sample realistic supporters list to equal 260 supporters & ~156,752 THB total
-export const INITIAL_TRANSACTIONS: DonationTransaction[] = [
-];
+export const INITIAL_TRANSACTIONS: DonationTransaction[] = [];
 /*
 export const INITIAL_TRANSACTIONS: DonationTransaction[] = [
   {
