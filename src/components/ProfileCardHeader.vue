@@ -49,11 +49,14 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue';
+import img1 from '/assets/niya_profile.png';
+import img2 from '/assets/niya_profile_2.jpg';
+
 
 // 1. ใส่รายการพาธรูปภาพทั้งหมดที่ต้องการสลับที่นี่
 const niyaImages = ref([
-  '/assets/niya_profile.png',
-  '/assets/niya_profile_2.jpg'
+  img1,
+  img2
 ]);
 const currentImageIndex = ref(0);
 let imageTimer = null;
