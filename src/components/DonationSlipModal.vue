@@ -13,7 +13,7 @@
       </div>
       <h3 class="text-lg sm:text-xl font-extrabold text-[#1e293b] mb-4 font-['Chakra_Petch'] flex items-center gap-2">
         <Upload class="w-5 h-5 text-pink-500" />
-        <span>แจ้งโอนเงินบริจาค</span>
+        <span>แจ้งโอนเงินโดเนท</span>
       </h3>
 
       <!-- Form -->
@@ -22,7 +22,7 @@
         <!-- Supporter Name -->
         <div>
           <label class="block font-bold text-slate-800 mb-1">
-            ชื่อผู้บริจาค (หรือนามแฝง): <span class="text-rose-500">*</span>
+            ชื่อผู้โดเนท (หรือนามแฝง): <span class="text-rose-500">*</span>
           </label>
           <input 
             type="text" 
@@ -36,7 +36,7 @@
         <!-- Amount -->
         <div>
           <label class="block font-bold text-slate-800 mb-1">
-            จำนวนเงินบริจาค (บาท): <span class="text-rose-500">*</span>
+            จำนวนเงินโดเนท (บาท): <span class="text-rose-500">*</span>
           </label>
           <input 
             type="number" 

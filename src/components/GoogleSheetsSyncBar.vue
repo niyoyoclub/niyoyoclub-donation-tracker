@@ -1,5 +1,5 @@
 <template>
-  <div class="relative z-10 max-w-4xl mx-auto px-2 sm:px-4 mb-4 font-['Prompt',sans-serif]">
+  <div class="relative z-10 max-w-6xl mx-auto px-2 sm:px-4 mb-4 font-['Prompt',sans-serif]">
     <div class="bg-white/95 backdrop-blur-md border-3 border-[#1e293b] rounded-2xl p-3 sm:p-4 shadow-[4px_4px_0px_#1e293b]">
       
       <!-- Top Status Row -->
@@ -107,7 +107,7 @@
         </h3>
 
         <ol class="list-decimal list-inside text-xs text-slate-700 space-y-2.5 font-sans leading-relaxed">
-          <li>เปิด Google Sheet ของคุณที่บันทึกรายการบริจาค</li>
+          <li>เปิด Google Sheet ของคุณที่บันทึกรายการโดเนท</li>
           <li>ไปที่เมนู <strong class="text-slate-900">ไฟล์ (File)</strong> &gt; <strong class="text-slate-900">แชร์ (Share)</strong> &gt; <strong class="text-slate-900">เผยแพร่ไปยังเว็บ (Publish to web)</strong></li>
           <li>ในหัวข้อการเผยแพร่ เลือกแผ่นงาน และเปลี่ยนประเภทจาก "เว็บเพจ" เป็น <strong class="text-emerald-700 bg-emerald-50 px-1 rounded">Comma-separated values (.csv)</strong></li>
           <li>กดปุ่ม <strong class="text-blue-700">เผยแพร่ (Publish)</strong> แล้วคัดลอก ลิงก์ URL ที่ได้</li>
@@ -116,7 +116,7 @@
 
         <div class="mt-4 p-3 bg-amber-50 border border-amber-300 rounded-xl text-[11px] text-amber-900 font-medium">
           💡 <strong>คอลัมน์แนะนำใน Google Sheet:</strong><br />
-          <code>Timestamp</code> (เวลา), <code>Supporter Name</code> (ชื่อผู้บริจาค), <code>Amount</code> (จำนวนเงิน), <code>Note</code> (ข้อความ)
+          <code>Timestamp</code> (เวลา), <code>Supporter Name</code> (ชื่อผู้โดเนท), <code>Amount</code> (จำนวนเงิน), <code>Note</code> (ข้อความ)
         </div>
 
         <button @click="showGuideModal = false" class="mt-4 w-full py-2 bg-slate-900 text-white font-bold text-xs rounded-xl border border-[#1e293b]">

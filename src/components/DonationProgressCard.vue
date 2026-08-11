@@ -11,7 +11,7 @@
       </div>
       <div class="text-center mb-4">
         <span class="inline-block text-xs sm:text-sm font-extrabold uppercase text-[#1e293b] tracking-widest bg-pink-300 border border-[#1e293b] px-3 py-1 rounded-full shadow-[2px_2px_0px_#1e293b]">
-          . ซื้อครบทุกๆ {{ formatMoney(state.config.token.rechargeTokenLevel) }} Tokens • ผู้สนับสนุนทบให้อีก {{ formatMoney(state.config.token.rechargeToken) }} Tokens • ทบสูงสุด {{ formatMoney(state.config.token.maxRechargeToken) }} Tokens .
+          . ซื้อทุกๆ {{ formatMoney(state.config.token.rechargeTokenLevel) }} Tokens • ผู้สนับสนุนทบให้อีก {{ formatMoney(state.config.token.rechargeToken) }} Tokens • สูงสุด {{ formatMoney(state.config.token.maxRechargeToken) }} Tokens .
         </span>
       </div>
 

@@ -8,7 +8,7 @@
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3 pb-2 border-b border-slate-200">
         <h3 class="text-sm sm:text-base font-bold text-[#1e293b] flex items-center gap-2 font-['Chakra_Petch']">
           <ListOrdered class="w-4 h-4 text-pink-600" />
-          <span>รายการบริจาคทั้งหมด</span>
+          <span>รายการโดเนททั้งหมด</span>
           <span class="px-2 py-0.5 bg-pink-100 text-pink-800 rounded-full text-xs font-mono font-bold">
             {{ filteredTransactions.length }} รายการ
           </span>
@@ -28,7 +28,7 @@
       <!-- Empty State -->
       <div v-if="filteredTransactions.length === 0" class="py-12 text-center text-slate-500">
         <Inbox class="w-12 h-12 mx-auto text-slate-300 mb-2" />
-        <p class="font-bold text-sm">ไม่พบรายการบริจาคตามเงื่อนไขที่คัดกรอง</p>
+        <p class="font-bold text-sm">ไม่พบรายการโดเนทตามเงื่อนไขที่คัดกรอง</p>
         <p class="text-xs text-slate-400 mt-1">ลองเปลี่ยนคำค้นหาหรือล้างตัวคัดกรอง</p>
       </div>
 
@@ -38,8 +38,8 @@
           <thead>
             <tr class="bg-slate-100 text-[#1e293b] border-b-2 border-[#1e293b] uppercase tracking-wider font-extrabold">
               <th class="p-2.5">ลำดับ/เวลา</th>
-              <th class="p-2.5">ผู้บริจาค</th>
-              <th class="p-2.5 text-right">ยอดบริจาค (บาท)</th>
+              <th class="p-2.5">ผู้โดเนท</th>
+              <th class="p-2.5 text-right">ยอดโดเนท (บาท)</th>
               <th class="p-2.5">ช่องทาง</th>
               <th class="p-2.5">ข้อความ</th>
               <th class="p-2.5 text-center">สถานะ</th>
@@ -161,14 +161,14 @@
           <X class="w-5 h-5 text-[#1e293b]" />
         </button>
 
-        <div class="text-xs font-extrabold uppercase text-pink-600 tracking-wider mb-1">รายละเอียดสลิปการบริจาค</div>
+        <div class="text-xs font-extrabold uppercase text-pink-600 tracking-wider mb-1">รายละเอียดสลิปการโดเนท</div>
         <h3 class="text-xl font-extrabold text-[#1e293b] mb-4 font-['Chakra_Petch'] flex items-center gap-2">
           <span>{{ selectedTx.supporterName }}</span>
         </h3>
 
         <div class="space-y-2.5 bg-slate-50 p-4 rounded-2xl border-2 border-slate-200 text-xs text-slate-800 font-medium">
           <div class="flex justify-between items-center pb-2 border-b border-slate-200">
-            <span class="text-slate-500">ยอดเงินบริจาค:</span>
+            <span class="text-slate-500">ยอดเงินโดเนท:</span>
             <span class="text-lg font-extrabold text-emerald-600 font-mono">฿{{ formatMoney(selectedTx.amount) }}</span>
           </div>
 
