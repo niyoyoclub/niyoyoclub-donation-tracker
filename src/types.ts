@@ -32,6 +32,7 @@ export interface ProjectConfig {
   communityLink: string;
   activeBonusTierText: string;
   nextBonusTierText: string;
+  token: TokenSetup;
 }
 
 export interface FilterState {
@@ -50,4 +51,15 @@ export interface SupporterLeaderboardItem {
   transactionCount: number;
   lastDonated: string;
   rank: number;
+}
+
+export interface TokenSetup {
+  start: number;
+  price: number;
+  target: number;
+  rechargeTokenLevel: number;
+  rechargeToken: number;
+  maxRechargeToken: number;
+  bonusTokens: number[];
+  targetAmounts: number[];
 }
