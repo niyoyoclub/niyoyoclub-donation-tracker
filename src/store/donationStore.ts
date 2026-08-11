@@ -225,7 +225,7 @@ function parseCSV(csvText: string): DonationTransaction[] {
 
   // Find column indexes
   const timeIdx = headers.findIndex(h => h.includes('time') || h.includes('เวลา') || h.includes('date'));
-  const nameIdx = headers.findIndex(h => h.includes('name') || h.includes('ชื่อ') || h.includes('supporter') || h.includes('ผู้บริจาค'));
+  const nameIdx = headers.findIndex(h => h.includes('name') || h.includes('ชื่อ') || h.includes('supporter') || h.includes('ผู้โดเนท'));
   const amountIdx = headers.findIndex(h => h.includes('amount') || h.includes('จำนวน') || h.includes('ยอด') || h.includes('baht'));
   const noteIdx = headers.findIndex(h => h.includes('note') || h.includes('หมายเหตุ') || h.includes('ข้อความ'));
   const channelIdx = headers.findIndex(h => h.includes('channel') || h.includes('ช่องทาง') || h.includes('bank'));
@@ -251,7 +251,7 @@ function parseCSV(csvText: string): DonationTransaction[] {
     parsed.push({
       id: `GS-${i}-${Date.now().toString().slice(-4)}`,
       timestamp: rawTime,
-      supporterName: rawName || 'ผู้บริจาคใจดี',
+      supporterName: rawName || 'ผู้โดเนทใจดี',
       amount: amountNum,
       paymentChannel: rawChannel,
       slipRef: rawRef,

@@ -10,7 +10,7 @@
       <div class="text-xs font-extrabold uppercase text-slate-500 tracking-wider mb-1">CAMPAIGN CONFIGURATION</div>
       <h3 class="text-lg sm:text-xl font-extrabold text-[#1e293b] mb-4 font-['Chakra_Petch'] flex items-center gap-2">
         <Settings class="w-5 h-5 text-slate-700" />
-        <span>ตั้งค่าโปรเจกต์ &amp; บัญชีบริจาค</span>
+        <span>ตั้งค่าโปรเจกต์ &amp; บัญชีโดเนท</span>
       </h3>
 
       <form @submit.prevent="saveSettings" class="space-y-3 text-xs font-medium text-slate-800">
@@ -35,7 +35,7 @@
 
         <!-- Bank Details -->
         <div class="p-3 bg-purple-50 border border-purple-200 rounded-xl space-y-2">
-          <div class="font-bold text-purple-900">ข้อมูลบัญชีรับบริจาค</div>
+          <div class="font-bold text-purple-900">ข้อมูลบัญชีรับโดเนท</div>
           
           <div class="grid grid-cols-2 gap-2">
             <div>

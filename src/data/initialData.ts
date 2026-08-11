@@ -26,17 +26,6 @@ export const INITIAL_CONFIG: ProjectConfig = {
   },
 };
 
-// export const BONUS_TIER_TEXTS = [
-//   'NOT YET BONUS TIER (+' + INITIAL_CONFIG.token.start +' Tokens)',
-//   'BONUS TIER 1 (+2,290 Tokens)',
-//   'BONUS TIER 2 (+2,880 Tokens)',
-//   'BONUS TIER 3 (+4,050 Tokens)',
-//   'BONUS TIER 4 (+6,395 Tokens)',
-//   'BONUS TIER 5 (+10,300 Tokens)',
-//   'SUPER BONUS TIER (+15,000 Tokens)',
-//   'COMPLETED +15,000 Tokens'
-// ];
-
 export const INITIAL_TIERS: TierGoal[] = [
   {
     level: 0,
@@ -127,6 +116,17 @@ export const INITIAL_TIERS: TierGoal[] = [
       " Tokens",
     isReached: false,
   },
+];
+
+const BONUS_TIER_TEXTS = [
+  'NOT YET BONUS TIER (+' + INITIAL_CONFIG.token.start +' Tokens)',
+  'BONUS TIER 1 (+600 Tokens)',
+  'BONUS TIER 2 (+1,200 Tokens)',
+  'BONUS TIER 3 (+2,400 Tokens)',
+  'BONUS TIER 4 (+4,800 Tokens)',
+  'BONUS TIER 5 (+6,800 Tokens)',
+  'SUPER BONUS TIER (+13,600 Tokens)',
+  'COMPLETED +13,600 Tokens'
 ];
 
 export function getActiveBonusTierText(currentAmount: number) {
