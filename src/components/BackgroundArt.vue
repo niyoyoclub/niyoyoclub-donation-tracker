@@ -1,5 +1,37 @@
 <template>
   <div class="fixed inset-0 pointer-events-none overflow-hidden z-0 bg-gradient-to-b from-[#81d4fa] via-[#b2ebf2] to-[#e0f7fa]">
+
+    <!-- Cute Sun with Rotating Rays (Moving Left to Right over 10 Mins) -->
+    <div class="absolute top-4 sun-traverse z-0">
+      <div class="w-20 h-20 md:w-28 md:h-28 relative">
+        <svg viewBox="0 0 100 100" class="w-full h-full drop-shadow-lg">
+          <!-- Rotating Rays Group -->
+          <g class="sun-rays-spin origin-center">
+            <line x1="50" y1="10" x2="50" y2="2" stroke="#ffb74d" stroke-width="4" stroke-linecap="round" />
+            <line x1="50" y1="90" x2="50" y2="98" stroke="#ffb74d" stroke-width="4" stroke-linecap="round" />
+            <line x1="10" y1="50" x2="2" y2="50" stroke="#ffb74d" stroke-width="4" stroke-linecap="round" />
+            <line x1="90" y1="50" x2="98" y2="50" stroke="#ffb74d" stroke-width="4" stroke-linecap="round" />
+            <line x1="21.7" y1="21.7" x2="16" y2="16" stroke="#ffb74d" stroke-width="4" stroke-linecap="round" />
+            <line x1="78.3" y1="78.3" x2="84" y2="84" stroke="#ffb74d" stroke-width="4" stroke-linecap="round" />
+            <line x1="21.7" y1="78.3" x2="16" y2="84" stroke="#ffb74d" stroke-width="4" stroke-linecap="round" />
+            <line x1="78.3" y1="21.7" x2="84" y2="16" stroke="#ffb74d" stroke-width="4" stroke-linecap="round" />
+          </g>
+          <!-- Sun Body -->
+          <circle cx="50" cy="50" r="32" fill="#ffe082" stroke="#ffa726" stroke-width="2.5" />
+          <!-- Cute Sun Face -->
+          <ellipse cx="40" cy="46" rx="3.5" ry="4.5" fill="#3e2723" />
+          <ellipse cx="60" cy="46" rx="3.5" ry="4.5" fill="#3e2723" />
+          <circle cx="41" cy="44" r="1.2" fill="#ffffff" />
+          <circle cx="61" cy="44" r="1.2" fill="#ffffff" />
+          <!-- Rosy Cheeks -->
+          <circle cx="33" cy="52" r="5" fill="#ff80ab" opacity="0.6" />
+          <circle cx="67" cy="52" r="5" fill="#ff80ab" opacity="0.6" />
+          <!-- Smile -->
+          <path d="M 44 54 Q 50 60 56 54" stroke="#3e2723" stroke-width="2" fill="none" stroke-linecap="round" />
+        </svg>
+      </div>
+    </div>
+
     <!-- Floating Pixel Clouds -->
     <div class="absolute top-6 left-10 opacity-80 animate-pulse">
       <svg width="120" height="48" viewBox="0 0 120 48" fill="none">
@@ -299,6 +331,34 @@
 </script>
 
 <style scoped>
+/* Animation ดวงอาทิตย์ขยับจากซ้ายไปขวา (วนลูปทุก 10 นาที = 600s) */
+@keyframes sunTraverse {
+  0% {
+    left: -10%;
+  }
+  100% {
+    left: 110%;
+  }
+}
+
+/* Animation รัศมีพระอาทิตย์หมุน */
+@keyframes sunRaysSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.sun-traverse {
+  animation: sunTraverse 300s linear infinite;
+}
+
+.sun-rays-spin {
+  animation: sunRaysSpin 12s linear infinite;
+}
+
 /* Animation สำหรับแมวกระโดด */
 @keyframes catJump {
   0%, 100% {
