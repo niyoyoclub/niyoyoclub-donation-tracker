@@ -2,7 +2,7 @@
   <div class="fixed inset-0 pointer-events-none overflow-hidden z-0 bg-gradient-to-b from-[#81d4fa] via-[#b2ebf2] to-[#e0f7fa]">
 
     <!-- Cute Sun with Rotating Rays (Moving Left to Right over 10 Mins) -->
-    <div class="absolute top-4 sun-traverse z-0">
+    <div class="absolute top-4 sun-traverse z-0 hidden md:block">
       <div class="w-20 h-20 md:w-28 md:h-28 relative">
         <svg viewBox="0 0 100 100" class="w-full h-full drop-shadow-lg">
           <!-- Rotating Rays Group -->
@@ -49,7 +49,7 @@
     </div>
 
     <!-- Floating Cute Daifuku (5 Clouds-like Pieces) -->
-    <div class="absolute inset-0 z-5 pointer-events-none">
+    <div class="absolute inset-0 z-5 pointer-events-none hidden md:block">
       <!-- Daifuku 1: Strawberry Daifuku (Top Left-Center) -->
       <div class="absolute top-12 left-[25%] w-20 h-16 md:w-24 md:h-20 daifuku-float-1 opacity-90">
         <svg viewBox="0 0 120 100" class="w-full h-full drop-shadow-md">
@@ -161,7 +161,7 @@
     </div>
 
     <!-- 8 Jumping Cats Layer -->
-    <div class="absolute inset-0 z-10 pointer-events-none">
+    <div class="absolute inset-0 z-10 pointer-events-none hidden md:block">
       <!-- Cat 1: Orange Tabby Cat (Left Low) -->
       <div class="absolute bottom-[8%] left-[5%] w-16 h-16 md:w-20 md:h-20 cat-jump-1">
         <svg viewBox="0 0 100 100" class="w-full h-full drop-shadow-md">
