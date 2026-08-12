@@ -16,6 +16,89 @@
       </svg>
     </div>
 
+    <!-- Floating Cute Daifuku (5 Clouds-like Pieces) -->
+    <div class="absolute inset-0 z-5 pointer-events-none">
+      <!-- Daifuku 1: Strawberry Daifuku (Top Left-Center) -->
+      <div class="absolute top-12 left-[25%] w-20 h-16 md:w-24 md:h-20 daifuku-float-1 opacity-90">
+        <svg viewBox="0 0 120 100" class="w-full h-full drop-shadow-md">
+          <!-- Main Mochi Shape -->
+          <path d="M 20 60 C 15 30, 40 15, 60 15 C 80 15, 105 30, 100 60 C 95 85, 25 85, 20 60 Z" fill="#ffffff" stroke="#f8bbd0" stroke-width="3" />
+          <!-- Strawberry Top Accent -->
+          <path d="M 50 18 Q 60 8 70 18 C 65 30 55 30 50 18 Z" fill="#ff5252" />
+          <path d="M 56 12 L 60 6 L 64 12" stroke="#4caf50" stroke-width="3" stroke-linecap="round" fill="none" />
+          <!-- Cute Face -->
+          <ellipse cx="45" cy="50" rx="3" ry="4" fill="#3e2723" />
+          <ellipse cx="75" cy="50" rx="3" ry="4" fill="#3e2723" />
+          <circle cx="38" cy="55" r="4" fill="#ff80ab" opacity="0.6" />
+          <circle cx="82" cy="55" r="4" fill="#ff80ab" opacity="0.6" />
+          <path d="M 56 56 Q 60 60 64 56" stroke="#3e2723" stroke-width="2" fill="none" stroke-linecap="round" />
+        </svg>
+      </div>
+
+      <!-- Daifuku 2: Matcha Green Tea Daifuku (Top Center-Right) -->
+      <div class="absolute top-24 left-[55%] w-18 h-14 md:w-22 md:h-18 daifuku-float-2 opacity-85">
+        <svg viewBox="0 0 120 100" class="w-full h-full drop-shadow-md">
+          <!-- Soft Green Body -->
+          <path d="M 20 60 C 15 30, 40 15, 60 15 C 80 15, 105 30, 100 60 C 95 85, 25 85, 20 60 Z" fill="#c8e6c9" stroke="#81c784" stroke-width="3" />
+          <!-- Leaf Top -->
+          <path d="M 60 12 C 50 2 70 2 60 12" stroke="#388e3c" stroke-width="4" stroke-linecap="round" fill="none" />
+          <!-- Cute Winking Face -->
+          <path d="M 40 48 Q 45 42 50 48" stroke="#2e7d32" stroke-width="2.5" fill="none" stroke-linecap="round" />
+          <ellipse cx="72" cy="48" rx="3" ry="4" fill="#2e7d32" />
+          <circle cx="35" cy="53" r="4" fill="#a5d6a7" />
+          <circle cx="78" cy="53" r="4" fill="#a5d6a7" />
+          <path d="M 58 54 Q 60 58 62 54" stroke="#2e7d32" stroke-width="2" fill="none" stroke-linecap="round" />
+        </svg>
+      </div>
+
+      <!-- Daifuku 3: Anko Red Bean Daifuku (Top Right) -->
+      <div class="absolute top-8 right-[12%] w-16 h-14 md:w-20 md:h-16 daifuku-float-3 opacity-90">
+        <svg viewBox="0 0 120 100" class="w-full h-full drop-shadow-md">
+          <!-- White Body with Powder Sheen -->
+          <path d="M 20 60 C 15 30, 40 15, 60 15 C 80 15, 105 30, 100 60 C 95 85, 25 85, 20 60 Z" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="3" />
+          <!-- Little Bean Accent -->
+          <ellipse cx="60" cy="18" rx="6" ry="4" fill="#4e342e" transform="rotate(-15 60 18)" />
+          <!-- Sleeping Cute Face -->
+          <path d="M 40 50 Q 45 54 50 50" stroke="#4e342e" stroke-width="2.5" fill="none" stroke-linecap="round" />
+          <path d="M 70 50 Q 75 54 80 50" stroke="#4e342e" stroke-width="2.5" fill="none" stroke-linecap="round" />
+          <circle cx="35" cy="55" r="3.5" fill="#ff80ab" opacity="0.5" />
+          <circle cx="85" cy="55" r="3.5" fill="#ff80ab" opacity="0.5" />
+        </svg>
+      </div>
+
+      <!-- Daifuku 4: Chocolate Daifuku (Mid Left) -->
+      <div class="absolute top-36 left-[8%] w-18 h-14 md:w-22 md:h-18 daifuku-float-4 opacity-85">
+        <svg viewBox="0 0 120 100" class="w-full h-full drop-shadow-md">
+          <!-- Brown Body -->
+          <path d="M 20 60 C 15 30, 40 15, 60 15 C 80 15, 105 30, 100 60 C 95 85, 25 85, 20 60 Z" fill="#d7ccc8" stroke="#a1887f" stroke-width="3" />
+          <!-- Cocoa Powder Dots -->
+          <circle cx="45" cy="25" r="2" fill="#5d4037" opacity="0.6" />
+          <circle cx="60" cy="20" r="2.5" fill="#5d4037" opacity="0.6" />
+          <circle cx="72" cy="26" r="2" fill="#5d4037" opacity="0.6" />
+          <!-- Happy Surprised Face -->
+          <circle cx="45" cy="48" r="3.5" fill="#3e2723" />
+          <circle cx="75" cy="48" r="3.5" fill="#3e2723" />
+          <ellipse cx="60" cy="55" rx="3" ry="4" fill="#3e2723" />
+        </svg>
+      </div>
+
+      <!-- Daifuku 5: Sakura Pink Daifuku (Mid Right) -->
+      <div class="absolute top-40 right-[28%] w-18 h-14 md:w-22 md:h-18 daifuku-float-5 opacity-90">
+        <svg viewBox="0 0 120 100" class="w-full h-full drop-shadow-md">
+          <!-- Pink Mochi Body -->
+          <path d="M 20 60 C 15 30, 40 15, 60 15 C 80 15, 105 30, 100 60 C 95 85, 25 85, 20 60 Z" fill="#f8bbd0" stroke="#f48fb1" stroke-width="3" />
+          <!-- Sakura Petal on Top -->
+          <path d="M 60 10 C 55 18, 65 25, 60 30 C 55 25, 65 18, 60 10 Z" fill="#ff4081" opacity="0.8" />
+          <!-- Smile Face -->
+          <circle cx="42" cy="50" r="3" fill="#880e4f" />
+          <circle cx="78" cy="50" r="3" fill="#880e4f" />
+          <circle cx="35" cy="54" r="4" fill="#ff80ab" />
+          <circle cx="85" cy="54" r="4" fill="#ff80ab" />
+          <path d="M 55 54 Q 60 60 65 54" stroke="#880e4f" stroke-width="2" fill="none" stroke-linecap="round" />
+        </svg>
+      </div>
+    </div>
+
     <!-- Cherry Blossom Branches (Top Right) -->
     <div class="absolute top-0 right-0 w-80 md:w-96 h-80 z-0 opacity-90">
       <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
@@ -216,6 +299,7 @@
 </script>
 
 <style scoped>
+/* Animation สำหรับแมวกระโดด */
 @keyframes catJump {
   0%, 100% {
     transform: translateY(0) scale(1) rotate(0deg);
@@ -225,7 +309,6 @@
   }
 }
 
-/* แมวแต่ละตัวจะกระโดดด้วยความเร็วและจังหวะ (Delay) ที่แตกต่างกันอย่างเป็นธรรมชาติ */
 .cat-jump-1 { animation: catJump 2.2s infinite ease-in-out 0.0s; }
 .cat-jump-2 { animation: catJump 1.8s infinite ease-in-out 0.3s; }
 .cat-jump-3 { animation: catJump 2.5s infinite ease-in-out 0.7s; }
@@ -234,4 +317,20 @@
 .cat-jump-6 { animation: catJump 1.9s infinite ease-in-out 0.4s; }
 .cat-jump-7 { animation: catJump 2.6s infinite ease-in-out 0.1s; }
 .cat-jump-8 { animation: catJump 2.1s infinite ease-in-out 0.6s; }
+
+/* Animation สำหรับไดฟุกุลอยคล้ายเมฆ */
+@keyframes daifukuFloat {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(-18px) translateX(10px) rotate(4deg);
+  }
+}
+
+.daifuku-float-1 { animation: daifukuFloat 4.2s infinite ease-in-out 0.0s; }
+.daifuku-float-2 { animation: daifukuFloat 5.0s infinite ease-in-out 0.8s; }
+.daifuku-float-3 { animation: daifukuFloat 3.8s infinite ease-in-out 1.5s; }
+.daifuku-float-4 { animation: daifukuFloat 4.6s infinite ease-in-out 0.4s; }
+.daifuku-float-5 { animation: daifukuFloat 4.0s infinite ease-in-out 1.0s; }
 </style>
